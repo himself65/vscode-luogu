@@ -1,2 +1,9 @@
 # vscode-luogu
-Solve Luogu Problems in VSCode
+
+**开发中**
+
+让你在VSCode上提交洛谷代码
+
+# LICENSE
+
+[MIT](LICENSE) LICENSE
