@@ -1,36 +1,82 @@
 {
-    "name": "vscode-luogu",
-    "displayName": "vscode-luogu",
-    "description": "Solve Luogu Problems in VSCode",
-    "version": "0.0.1",
-    "publisher": "himself65",
-    "engines": {
-        "vscode": "^1.25.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            }
-        ]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
-        "eslint": "^4.11.0",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+  "name": "vscode-luogu",
+  "displayName": "Luogu",
+  "description": "Solve Luogu Problems in VSCode",
+  "version": "0.0.1",
+  "author": "Himself65",
+  "publisher": "himself65",
+  "engines": {
+    "vscode": "^1.25.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/himself65/vscode-luogu"
+  },
+  "homepage": "https://github.com/Himself65/vscode-luogu/blob/master/README.md",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "luogu",
+    "algorithm",
+    "interview"
+  ],
+  "preview": true,
+  "activationEvents": [
+    "onCommand:extension.sayHello"
+  ],
+  "main": "./src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.sayHello",
+        "title": "Hello World",
+        "category": "Luogu"
+      },
+      {
+        "command": "luogu.signin",
+        "title": "Sign in Luogu",
+        "category": "Luogu"
+      },
+      {
+        "command": "luogu.signout",
+        "title": "Sign out Luogu",
+        "category": "Luogu"
+      }
+    ]
+  },
+  "configuration": [
+    {
+      "title": "Luogu",
+      "properties": {
+        "luogu.defaultLanguage": {
+          "type": "string",
+          "enum": [
+            "Auto",
+            "C++11",
+            "C++",
+            "C",
+            "Pascal",
+            "Node.js",
+            "Java",
+            "Python2",
+            "Python3"
+          ],
+          "scope": "window",
+          "description": "Default language for solving the problems."
+        }
+      }
     }
+  ],
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6",
+    "eslint": "^4.11.0",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  }
 }
