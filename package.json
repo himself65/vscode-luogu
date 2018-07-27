@@ -1,20 +1,26 @@
 {
   "name": "vscode-luogu",
-  "displayName": "Luogu",
+  "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
+  "icon": "resources/img/favicon.ico",
   "version": "0.0.1",
-  "author": "Himself65",
+  "license": "MIT",
   "publisher": "himself65",
   "engines": {
     "vscode": "^1.25.0"
   },
+  "homepage": "https://github.com/Himself65/vscode-luogu/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/himself65/vscode-luogu"
+    "url": "https://github.com/himself65/vscode-luogu.git"
   },
-  "homepage": "https://github.com/Himself65/vscode-luogu/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/himself65/vscode-luogu/issues",
+    "email": "himself6565@gmail.com"
+  },
   "categories": [
-    "Other"
+    "Other",
+    "Snippets"
   ],
   "keywords": [
     "luogu",
@@ -23,59 +29,149 @@
   ],
   "preview": true,
   "activationEvents": [
-    "onCommand:extension.sayHello"
+    "onCommand:luogu.about",
+    "onCommand:luogu.signin",
+    "onCommand:luogu.signout",
+    "onCommand:luogu.showProblem",
+    "onCommand:luogu.searchProblem",
+    "onCommand:luogu.submitSolution",
+    "onCommand:luogu.refreshExplorer",
+    "onView:luoguExplorer"
   ],
-  "main": "./src/extension",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.sayHello",
-        "title": "Hello World",
-        "category": "Luogu"
-      },
-      {
         "command": "luogu.signin",
         "title": "Sign in Luogu",
-        "category": "Luogu"
+        "category": "Luogu",
+        "icon": "resources/signin.svg"
       },
       {
         "command": "luogu.signout",
         "title": "Sign out Luogu",
         "category": "Luogu"
+      },
+      {
+        "command": "luogu.showProblem",
+        "title": "Show problem",
+        "category": "Luogu"
+      },
+      {
+        "command": "luogu.submitSolution",
+        "title": "Submit to Luogu",
+        "category": "Luogu"
+      },
+      {
+        "command": "luogu.searchProblem",
+        "title": "Search Problem",
+        "category": "Luogu",
+        "icon": "resources/search.svg"
+      },
+      {
+        "command": "luogu.refreshExplorer",
+        "title": "Refresh Explorer",
+        "category": "Luogu",
+        "icon": "resources/refresh.svg"
+      },
+      {
+        "command": "luogu.about",
+        "title": "About",
+        "category": "Luogu"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "luogu",
+          "title": "Luogu",
+          "icon": "resources/img/favicon.ico"
+        }
+      ]
+    },
+    "views": {
+      "luogu": [
+        {
+          "id": "luoguExplorer",
+          "name": "Problems"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "luogu.signin",
+          "when": "view == luoguExplorer",
+          "group": "navigation@0"
+        },
+        {
+          "command": "luogu.searchProblem",
+          "when": "view == luoguExplorer",
+          "group": "navigation@1",
+          "icon": "resources/search.svg"
+        },
+        {
+          "command": "luogu.refreshExplorer",
+          "when": "view == luoguExplorer",
+          "group": "navigation@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "luogu.showProblem",
+          "when": "view == luoguExplorer && viewItem == problem",
+          "group": "luogu@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "luogu.submitSolution",
+          "when": "explorerResourceIsFolder == false",
+          "group": "luogu@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "luogu.submitSolution",
+          "group": "luogu@1"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "Luogu",
+        "properties": {
+          "luogu.defaultLanguage": {
+            "type": "string",
+            "enum": [
+              "Auto",
+              "C++11",
+              "C++",
+              "C",
+              "Pascal",
+              "Node.js",
+              "Java",
+              "Python2",
+              "Python3"
+            ],
+            "scope": "window",
+            "description": "Default language for solving the problems."
+          }
+        }
       }
     ]
   },
-  "configuration": [
-    {
-      "title": "Luogu",
-      "properties": {
-        "luogu.defaultLanguage": {
-          "type": "string",
-          "enum": [
-            "Auto",
-            "C++11",
-            "C++",
-            "C",
-            "Pascal",
-            "Node.js",
-            "Java",
-            "Python2",
-            "Python3"
-          ],
-          "scope": "window",
-          "description": "Default language for solving the problems."
-        }
-      }
-    }
-  ],
   "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "typescript": "^2.6.1",
     "vscode": "^1.1.6",
-    "eslint": "^4.11.0",
+    "tslint": "^5.8.0",
     "@types/node": "^7.0.43",
     "@types/mocha": "^2.2.42"
   }

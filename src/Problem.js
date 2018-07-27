@@ -1,2 +1,0 @@
-const vscode = require('vscode')
-
