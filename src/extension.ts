@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 import { luoguManager } from './luoguManager';
 import { luoguStatusBarItem } from './luoguStatusBarItem';
-import { UserStatus } from './shared';
+import { searchProblem } from './commands/search';
 
 export function activate(context: vscode.ExtensionContext) {
     const channel: vscode.OutputChannel = vscode.window.createOutputChannel("Luogu");
@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand("luogu.signin", () => luoguManager.signIn(channel)),
         vscode.commands.registerCommand("luogu.signout", () => luoguManager.signOut(channel)),
         vscode.commands.registerCommand("luogu.showProblem", () => { }),
-        vscode.commands.registerCommand("luogu.searchProblem", () => { }),
+        vscode.commands.registerCommand("luogu.searchProblem", () => searchProblem(channel)),
         vscode.commands.registerCommand("luogu.submitSolution", () => { }),
         vscode.commands.registerCommand("luogu.refreshExplorer", () => { })
     );

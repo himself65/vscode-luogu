@@ -78,6 +78,11 @@
         "command": "luogu.about",
         "title": "About",
         "category": "Luogu"
+      },
+      {
+        "command": "luogu.selectLanguage",
+        "title": "SelectLanguage",
+        "category": "Luogu"
       }
     ],
     "viewsContainers": {
@@ -154,8 +159,15 @@
               "Python2",
               "Python3"
             ],
+            "default": "Auto",
             "scope": "window",
             "description": "Default language for solving the problems."
+          },
+          "luogu.showSelectLanguageHint": {
+            "type": "boolean",
+            "default": "true",
+            "scope": "window",
+            "description": "Show Select Language Hint When Submit"
           }
         }
       }
@@ -166,13 +178,20 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose"
   },
   "devDependencies": {
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.6",
-    "tslint": "^5.8.0",
+    "@types/fs-extra": "^5.0.4",
+    "@types/mocha": "^2.2.42",
     "@types/node": "^7.0.43",
-    "@types/mocha": "^2.2.42"
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fs-extra": "^7.0.0",
+    "markdown-palettes": "^0.4.6"
   }
 }
