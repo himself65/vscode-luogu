@@ -129,7 +129,7 @@ export class Problem {
         this.sample.forEach((array, index) => {
             sample += `输入${index + 1} : \n \`\`\` \n ${array[0]} \n \`\`\` \n 输出${index + 1} : \n \`\`\` \n ${array[1]} \n \`\`\` \n`;
         });
-        return ` # ${this.name}| ${this.stringPID} \n ## 题目背景 \n ${this.background} \n${this.description} \n ## 输入输出格式 \n **输入格式** \n ${this.inputFormat} \n **输出格式** \n ${this.outputFormat} \n ## 输入输出样例 \n ${sample} \n ## 说明 \n ${this.hint} \n`;
+        return ` # ${this.name}| [${this.stringPID}](https://www.luogu.org/problemnew/show/${this.stringPID}) \n ## 题目背景 \n ${this.background} \n${this.description} \n ## 输入输出格式 \n **输入格式** \n ${this.inputFormat} \n **输出格式** \n ${this.outputFormat} \n ## 输入输出样例 \n ${sample} \n ## 说明 \n ${this.hint} \n`;
     }
 
     setType(Type: number) {
