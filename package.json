@@ -5,7 +5,7 @@
   "icon": "resources/img/luogu-normal.png",
   "version": "0.0.1",
   "license": "MIT",
-  "publisher": "himself65",
+  "publisher": "himself6565",
   "engines": {
     "vscode": "^1.25.0"
   },
@@ -42,45 +42,45 @@
   "contributes": {
     "commands": [{
         "command": "luogu.signin",
-        "title": "Sign in Luogu",
+        "title": "登陆洛谷账号",
         "category": "Luogu",
         "icon": "resources/signin.svg"
       },
       {
         "command": "luogu.signout",
-        "title": "Sign out Luogu",
+        "title": "退出洛谷账号",
         "category": "Luogu"
       },
       {
         "command": "luogu.showProblem",
-        "title": "Show problem",
+        "title": "显示题目",
         "category": "Luogu"
       },
       {
         "command": "luogu.submitSolution",
-        "title": "Submit to Luogu",
+        "title": "提交代码",
         "category": "Luogu"
       },
       {
         "command": "luogu.searchProblem",
-        "title": "Search Problem",
+        "title": "搜索题目",
         "category": "Luogu",
         "icon": "resources/search.svg"
       },
       {
         "command": "luogu.refreshExplorer",
-        "title": "Refresh Explorer",
+        "title": "刷新浏览器",
         "category": "Luogu",
         "icon": "resources/refresh.svg"
       },
       {
         "command": "luogu.about",
-        "title": "About",
+        "title": "关于",
         "category": "Luogu"
       },
       {
         "command": "luogu.selectLanguage",
-        "title": "SelectLanguage",
+        "title": "选择语言",
         "category": "Luogu"
       }
     ],
