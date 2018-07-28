@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -58,7 +58,7 @@
       },
       {
         "command": "luogu.submitSolution",
-        "title": "提交代码",
+        "title": "提交当前文档代码",
         "category": "Luogu"
       },
       {

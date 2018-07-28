@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.4
+
+- Optimize user expericence
+
+- Add Problem ID at ViewPage
+
 ## 0.0.3
 
 - Optimize user expericence
