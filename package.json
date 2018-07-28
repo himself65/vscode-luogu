@@ -190,9 +190,11 @@
     "vscode": "^1.1.6"
   },
   "dependencies": {
+    "@luogu-dev/markdown-it-katex": "0.0.1",
     "@types/markdown-it": "0.0.4",
     "axios": "^0.18.0",
     "fs-extra": "^7.0.0",
-    "markdown-it": "^8.4.2"
+    "markdown-it": "^8.4.2",
+    "markdown-it-highlightjs": "^3.0.0"
   }
 }
