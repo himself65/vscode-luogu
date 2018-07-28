@@ -42,7 +42,7 @@
   "contributes": {
     "commands": [{
         "command": "luogu.signin",
-        "title": "登陆洛谷账号",
+        "title": "登录洛谷账号",
         "category": "Luogu",
         "icon": "resources/signin.svg"
       },
