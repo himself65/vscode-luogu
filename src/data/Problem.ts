@@ -1,4 +1,4 @@
-export interface IProblem {
+export interface IAPIProblem {
     StringPID: string;
     Tags: Tag[];
     Type: number;
@@ -12,7 +12,7 @@ export interface IProblem {
     Background: string;
 }
 
-export interface ITag {
+export interface IAPITag {
     Id: number;
     Name: string;
     ParentId: number;
@@ -23,7 +23,7 @@ export class Tag {
     private name: string = "";
     private parentId: number = 0;
 
-    constructor(fields?: ITag) {
+    constructor(fields?: IAPITag) {
         if (!fields) { return; }
         this.id = fields.Id;
         this.name = fields.Name;
@@ -69,7 +69,8 @@ export class Problem {
     private background: string = "";
 
     public constructor(
-        fields?: IProblem) {
+        fields?: IAPIProblem
+    ) {
         if (!fields) { return; }
         this.stringPID = fields.StringPID;
         this.tags = fields.Tags;
@@ -126,31 +127,9 @@ export class Problem {
     toMarkDown(): string {
         let sample: string = '';
         this.sample.forEach((array, index) => {
-            sample += `输入${index + 1} : \n
-                    \`\`\` \n
-                    ${array[0]} \n 
-                    \`\`\` \n
-                    输出${index + 1} :\n 
-                    \`\`\` \n
-                    ${array[1]} \n
-                    \`\`\`\n
-                    `;
+            sample += `输入${index + 1} : \n \`\`\` \n ${array[0]} \n \`\`\` \n 输出${index + 1} : \n \`\`\` \n ${array[1]} \n \`\`\` \n`;
         });
-        return `
-        # ${this.name} \n 
-        ## 题目背景 \n
-        ${this.background} \n
-        ${this.description} \n
-        ## 输入输出格式 \n
-        **输入格式** \n
-        ${this.inputFormat} \n
-        **输出格式** \n
-        ${this.outputFormat} \n
-        ## 输入输出样例 \n
-        ${sample}
-        ## 说明 \n
-        ${this.hint} \n
-        `;
+        return ` # ${this.name} \n ## 题目背景 \n ${this.background} \n${this.description} \n ## 输入输出格式 \n **输入格式** \n ${this.inputFormat} \n **输出格式** \n ${this.outputFormat} \n ## 输入输出样例 \n ${sample} \n ## 说明 \n ${this.hint} \n`;
     }
 
     setType(Type: number) {
