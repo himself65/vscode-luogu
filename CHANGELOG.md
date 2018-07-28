@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.3
+
+- Optimize user expericence
+
 ## 0.0.2
 
 - Fixed bugs
