@@ -1,5 +1,7 @@
 "use strict";
 
+import * as vscode from 'vscode';
+
 export enum UserStatus {
     SignedIn = 1,
     SignedOut = 2,
@@ -22,3 +24,12 @@ export enum ProblemState {
     UAC = 2,
     Unknow = 3,
 }
+
+export function showError(message?: string): void {
+    vscode.window.showErrorMessage(message);
+}
+
+export const Oauth = {
+    clientID: 'luogu-dev',
+    key: 'HasHidden'
+};
