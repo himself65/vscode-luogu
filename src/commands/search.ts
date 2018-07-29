@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 import { getProblem } from '../utils/api';
 import { md } from '../utils/markdown';
+import { showError } from '../shared';
 
 export async function searchProblem(channel: vscode.OutputChannel, uri?: vscode.Uri): Promise<void> {
     let input = await vscode.window.showInputBox({ placeHolder: '输入题号' });
@@ -26,5 +27,5 @@ export async function searchProblem(channel: vscode.OutputChannel, uri?: vscode.
         </body>
         </html>`;
         pannel.webview.html = html;
-    });
+    }, message => showError(message));
 }

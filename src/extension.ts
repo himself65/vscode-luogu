@@ -5,6 +5,7 @@ import { luoguManager } from './luoguManager';
 import { luoguStatusBarItem } from './luoguStatusBarItem';
 import { searchProblem } from './commands/search';
 import { submitSolution } from './commands/submit';
+import { login } from './commands/login';
 
 export function activate(context: vscode.ExtensionContext) {
     const channel: vscode.OutputChannel = vscode.window.createOutputChannel("Luogu");
@@ -20,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         // vscode.window.registerTreeDataProvider("luoguExplorer", luoguTreeDataProvider),
         vscode.commands.registerCommand("luogu.about", about),
-        vscode.commands.registerCommand("luogu.signin", notice),
+        vscode.commands.registerCommand("luogu.signin", () => login(channel)),
         vscode.commands.registerCommand("luogu.signout", notice),
         vscode.commands.registerCommand("luogu.showProblem", notice),
         vscode.commands.registerCommand("luogu.searchProblem", () => searchProblem(channel)),

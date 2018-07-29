@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -25,7 +25,12 @@
   "keywords": [
     "luogu",
     "algorithm",
-    "interview"
+    "interview",
+    "洛谷",
+    "信息学竞赛",
+    "NOIP",
+    "OI",
+    "Olympiad Informatics"
   ],
   "preview": true,
   "activationEvents": [
@@ -179,6 +184,7 @@
     "@luogu-dev/markdown-it-katex": "0.0.1",
     "@types/markdown-it": "0.0.4",
     "axios": "^0.18.0",
+    "client-oauth2": "^4.2.1",
     "fs-extra": "^7.0.0",
     "markdown-it": "^8.4.2",
     "markdown-it-highlightjs": "^3.0.0"

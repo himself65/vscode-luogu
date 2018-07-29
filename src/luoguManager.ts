@@ -21,9 +21,18 @@ class LuoguManager extends EventEmitter implements ILuoguManager {
         this.userStatus = UserStatus.SignedOut;
     }
 
-    public async getLoginStatus(channel: vscode.OutputChannel): Promise<void> { }
-    public async signIn(channel: vscode.OutputChannel): Promise<void> { }
-    public async signOut(channel: vscode.OutputChannel): Promise<void> { }
+    public async getLoginStatus(channel: vscode.OutputChannel): Promise<void> {
+
+    }
+
+    public async signIn(channel: vscode.OutputChannel): Promise<void> {
+
+    }
+
+    public async signOut(channel: vscode.OutputChannel): Promise<void> {
+
+    }
+
     public getStatus(): UserStatus {
         return this.userStatus;
     }
