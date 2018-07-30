@@ -1,6 +1,12 @@
 # Change Log
 
-## 0.1.0-alpha.1
+## 0.1.1
+
+- update README.md
+
+- fix display error
+
+## 0.1.0
 
 - Add
     1. Login in your luogu account
