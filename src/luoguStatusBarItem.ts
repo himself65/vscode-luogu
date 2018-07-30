@@ -14,7 +14,7 @@ class LuoguStatusBarItem implements ILuoguStatusBarItem {
     constructor() {
         console.log('Init LuoguStatusBarItem');
         this.statusBarItem = vscode.window.createStatusBarItem();
-        this.statusBarItem.command = "leetcode.getProblemState";
+        this.statusBarItem.command = "luogu.submitSolution";
         this.statusBarItem.hide();
     }
 
@@ -22,7 +22,7 @@ class LuoguStatusBarItem implements ILuoguStatusBarItem {
         console.log('Updating StatusBar.');
         switch (status) {
             case UserStatus.SignedIn:
-                this.statusBarItem.text = `Luogu: ${user}`;
+                this.statusBarItem.text = `洛谷登录中`;
                 this.statusBarItem.show();
                 break;
             case UserStatus.SignedOut:

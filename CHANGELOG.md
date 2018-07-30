@@ -1,10 +1,24 @@
 # Change Log
 
+## 0.1.2
+
+- Add
+    1. New Icon from icon8
+    2. StatusBar at bottom
+
+- Update README.md
+
+- Fix
+    1. Repeat login on command luogu.login
+    2. Display error
+
+- Update README.md
+
 ## 0.1.1
 
-- update README.md
+- Update README.md
 
-- fix display error
+- Fix display error
 
 ## 0.1.0
 

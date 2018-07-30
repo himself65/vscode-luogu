@@ -95,6 +95,13 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
      * @param channel 用于消息的输出
      */
     public async signIn(channel: vscode.OutputChannel): Promise<void> {
+        if (this.userStatus === UserStatus.SignedIn) {
+            vscode.window.showQuickPick(["是", "否"], { placeHolder: '您已经登录，是否重新登录？' }).then(res => {
+                if (res !== "是") {
+                    return;
+                }
+            });
+        }
         try {
             let username = await vscode.window.showInputBox({
                 placeHolder: '输入您的用户名',
@@ -105,10 +112,13 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
                 password: true,
                 validateInput: (s: string) => s && s.trim() ? undefined : '输入不能为空'
             });
-
+            if (!username && !password) {
+                return;
+            }
             await loginUser(username, password).then(data => {
                 if (!data) { throw TypeError(data); }
                 vscode.window.showInformationMessage("成功登录");
+                this.userStatus = UserStatus.SignedIn;
                 this.userInfo = new UserInfo(data);
                 this.emit('stateChanged');
             }).catch(error => { throw error; });

@@ -8,7 +8,7 @@
 [![RATING](https://vsmarketplacebadge.apphb.com/rating-star/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Himself65/vscode-luogu/blob/master/LICENSE)
 
-让你在 VS Code 上提交洛谷代码
+轻松的让你在 VS Code 上提交洛谷代码
 
 ## 使用说明
 
@@ -39,6 +39,10 @@
 - 查看自己测评
 
 - 查看、发布犇犇
+
+## Others
+
+图标来自：[链接到Icons8](https://icons8.cn/)
 
 ## LICENSE
 
