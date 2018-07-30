@@ -3,17 +3,19 @@
 import * as vscode from 'vscode';
 import { getProblem } from '../utils/api';
 import { md } from '../utils/markdown';
-import { showError } from '../shared';
+import { promptForOpenOutputChannel, DialogType } from '../utils/uiUtils';
 
-export async function searchProblem(channel: vscode.OutputChannel, uri?: vscode.Uri): Promise<void> {
-    let input = await vscode.window.showInputBox({ placeHolder: '输入题号' });
-
+export async function search(channel: vscode.OutputChannel, uri?: vscode.Uri): Promise<void> {
+    let input = await vscode.window.showInputBox({
+        placeHolder: '输入题号',
+        validateInput: s => s && s.trim() ? undefined : '输入不能为空'
+    }).then(str => { return str.toUpperCase(); });
     if (!input) { return; }
-
-    await getProblem(input, problem => {
-        let pannel = vscode.window.createWebviewPanel(problem.getStringPID(), problem.getName(), vscode.ViewColumn.Two);
-        let content = md.render(problem.toMarkDown());
-        let html = `<!DOCTYPE html>
+    try {
+        await getProblem(input, async problem => {
+            let pannel = vscode.window.createWebviewPanel(problem.getStringPID(), problem.getName(), vscode.ViewColumn.Two);
+            let content = md.render(problem.toMarkDown());
+            let html = `<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -26,6 +28,10 @@ export async function searchProblem(channel: vscode.OutputChannel, uri?: vscode.
         ${content}
         </body>
         </html>`;
-        pannel.webview.html = html;
-    }, message => showError(message));
+            pannel.webview.html = html;
+        });
+    } catch (error) {
+        console.log(error);
+        await promptForOpenOutputChannel(error, DialogType.error, channel);
+    }
 }

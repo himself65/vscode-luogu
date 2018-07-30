@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -24,13 +24,10 @@
   ],
   "keywords": [
     "luogu",
-    "algorithm",
     "interview",
     "洛谷",
     "信息学竞赛",
-    "NOIP",
-    "OI",
-    "Olympiad Informatics"
+    "OI"
   ],
   "preview": true,
   "activationEvents": [
@@ -142,14 +139,14 @@
           "type": "string",
           "enum": [
             "Auto",
-            "C++11",
-            "C++",
-            "C",
             "Pascal",
-            "Node.js",
-            "Java",
+            "C",
+            "C++",
+            "C++11",
             "Python2",
-            "Python3"
+            "Python3",
+            "Java",
+            "Node.js"
           ],
           "default": "Auto",
           "scope": "window",

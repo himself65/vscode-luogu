@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.1.0-alpha.1
+
+- Add
+    1. Login in your luogu account
+    2. SubmitSolution
+
+- Optimize user expericence
+
+- Optimize code
+
+- Fix bugs
+
 ## 0.0.5
 
 - Add error message when user input is incorrect
