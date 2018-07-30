@@ -1,4 +1,12 @@
+<img align="right" width="150" height="150" src="https://github.com/Himself65/vscode-luogu/blob/master/resources/img/luogu.png?raw=true">
+
 # vscode-luogu
+
+[![Build Status](https://travis-ci.org/Himself65/vscode-luogu.svg?branch=master)](https://travis-ci.org/Himself65/vscode-luogu)
+[![VERSION](https://vsmarketplacebadge.apphb.com/version/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
+[![DownloadCount](https://vsmarketplacebadge.apphb.com/installs/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
+[![RATING](https://vsmarketplacebadge.apphb.com/rating-star/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
+[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Himself65/vscode-luogu/blob/master/LICENSE)
 
 让你在 VS Code 上提交洛谷代码
 
