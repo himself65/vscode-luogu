@@ -182,10 +182,11 @@
   },
   "dependencies": {
     "@luogu-dev/markdown-it-katex": "0.0.1",
+    "@types/lodash": "^4.14.115",
     "@types/markdown-it": "0.0.4",
     "axios": "^0.18.0",
-    "client-oauth2": "^4.2.1",
     "fs-extra": "^7.0.0",
+    "lodash": "^4.17.10",
     "markdown-it": "^8.4.2",
     "markdown-it-highlightjs": "^3.0.0"
   }
