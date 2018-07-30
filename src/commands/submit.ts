@@ -12,7 +12,7 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
     if (!edtior) { vscode.window.showErrorMessage('您没有打开任何文件，请重试'); return; }
     let text = edtior.document.getText();
     const filePath = edtior.document.fileName;
-    const O2: boolean = await vscode.window.showQuickPick(['是', '否'], { placeHolder: '是否开启O2优化 (非 C/C++ 切勿开启)' }).then(ans => {
+    const O2: boolean = await vscode.window.showQuickPick(['是', '否'], { placeHolder: '是否开启O2优化 (非 C/C++/Pascal 切勿开启)' }).then(ans => {
         if (ans === '是') {
             return true;
         } else {
