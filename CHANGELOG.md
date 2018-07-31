@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.5
+
+- Add Error Message when input is incorrect
+
+- Optimize user expericence
+
 ## 0.1.4
 
 - Fix a bug
