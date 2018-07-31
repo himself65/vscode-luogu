@@ -9,7 +9,6 @@ import { promptForOpenOutputChannel, DialogType } from './utils/uiUtils';
 
 export function activate(context: vscode.ExtensionContext) {
     const channel: vscode.OutputChannel = vscode.window.createOutputChannel("Luogu");
-
     let about = function () {
         promptForOpenOutputChannel('Developed by Himself65', DialogType.info, channel);
     };

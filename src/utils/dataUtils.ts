@@ -16,7 +16,7 @@ export async function save(): Promise<void> {
 export function getUserFromLocal() {
     const exist: boolean = fse.pathExistsSync(luoguJSONPath);
     if (!exist) {
-        throw Error(`${luoguJSONPath} 不存在`);
+        return null;
     } else {
         return fse.readJsonSync(luoguJSONPath);
     }
