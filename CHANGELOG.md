@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.3
+
+- Fix a bug
+
 ## 0.1.2
 
 - Add

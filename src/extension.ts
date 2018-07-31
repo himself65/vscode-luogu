@@ -32,12 +32,10 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand("luogu.refreshExplorer", notice)
     );
 
-    (() => {
+    luoguStatusBarItem.updateStatusBar(luoguUserManager.getStatus(), luoguUserManager.getUser());
+    luoguUserManager.on('stateChanged', () => {
         luoguStatusBarItem.updateStatusBar(luoguUserManager.getStatus(), luoguUserManager.getUser());
-        luoguUserManager.on('stateChanged', () => {
-            luoguStatusBarItem.updateStatusBar(luoguUserManager.getStatus(), luoguUserManager.getUser());
-        });
-    })();
+    });
 }
 
 export function deactivate() {

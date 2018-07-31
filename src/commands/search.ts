@@ -9,7 +9,7 @@ export async function search(channel: vscode.OutputChannel, uri?: vscode.Uri): P
     let input = await vscode.window.showInputBox({
         placeHolder: '输入题号',
         validateInput: s => s && s.trim() ? undefined : '输入不能为空'
-    }).then(str => { return str.toUpperCase(); });
+    });
     if (!input) { return; }
     try {
         await getProblem(input, async problem => {
