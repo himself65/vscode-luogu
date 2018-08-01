@@ -6,7 +6,7 @@ import { promptForOpenOutputChannel, DialogType } from "./utils/uiUtils";
 import { saveUserToLocal, getUserFromLocal } from "./utils/dataUtils";
 
 export interface ILuoguUserManager extends EventEmitter {
-    getLoginStatus(channel: vscode.OutputChannel): void;
+    refreshLoginStatus(channel: vscode.OutputChannel): void;
     getStatus(): UserStatus;
     getUser(): string | undefined;
     getUserAccessToken(): string | undefined;
@@ -71,7 +71,7 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
      * 
      * @param channel 用于消息的输出
      */
-    public async getLoginStatus(channel: vscode.OutputChannel): Promise<void> {
+    public async refreshLoginStatus(channel: vscode.OutputChannel): Promise<void> {
         // TOOD: 刷新用户信息
     }
 
@@ -136,6 +136,7 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
         this.currentUser = null;
         this.userStatus = UserStatus.SignedOut;
         this.userInfo = new UserInfo();
+        this.emit('stateChanged');
     }
 
     /**

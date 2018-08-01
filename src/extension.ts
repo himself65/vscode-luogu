@@ -6,6 +6,7 @@ import { luoguStatusBarItem } from './luoguStatusBarItem';
 import { search } from './commands/search';
 import { submit } from './commands/submit';
 import { promptForOpenOutputChannel, DialogType } from './utils/uiUtils';
+import { UserStatus } from './shared';
 
 export function activate(context: vscode.ExtensionContext) {
     const channel: vscode.OutputChannel = vscode.window.createOutputChannel("Luogu");
@@ -25,6 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand("luogu.about", about),
         vscode.commands.registerCommand("luogu.signin", () => luoguUserManager.signIn(channel)),
         vscode.commands.registerCommand("luogu.signout", () => luoguUserManager.signOut(channel)),
+        vscode.commands.registerCommand("luogu.userInfo", () => vscode.window.showInformationMessage(`${luoguUserManager.getStatus() === UserStatus.SignedIn ? '登录中' : '未登录'}`)),
         vscode.commands.registerCommand("luogu.showProblem", notice),
         vscode.commands.registerCommand("luogu.searchProblem", () => search(channel)),
         vscode.commands.registerCommand("luogu.submitSolution", () => submit(channel)),

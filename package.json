@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -33,6 +33,7 @@
     "onCommand:luogu.about",
     "onCommand:luogu.signin",
     "onCommand:luogu.signout",
+    "onCommand:luogu.userInfo",
     "onCommand:luogu.showProblem",
     "onCommand:luogu.searchProblem",
     "onCommand:luogu.submitSolution",
@@ -82,6 +83,11 @@
           "dark": "resources/dark/refresh-dark.png",
           "light": "resources/light/refresh-light.png"
         }
+      },
+      {
+        "command": "luogu.userInfo",
+        "title": "账户信息",
+        "category": "Luogu"
       },
       {
         "command": "luogu.about",

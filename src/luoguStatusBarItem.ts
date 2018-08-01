@@ -14,7 +14,7 @@ class LuoguStatusBarItem implements ILuoguStatusBarItem {
     constructor() {
         console.log('Init LuoguStatusBarItem');
         this.statusBarItem = vscode.window.createStatusBarItem();
-        this.statusBarItem.command = "luogu.submitSolution";
+        this.statusBarItem.command = "luogu.userInfo";
         this.statusBarItem.hide();
     }
 
@@ -22,7 +22,7 @@ class LuoguStatusBarItem implements ILuoguStatusBarItem {
         console.log('Updating StatusBar.');
         switch (status) {
             case UserStatus.SignedIn:
-                this.statusBarItem.text = `洛谷登录中`;
+                this.statusBarItem.text = `洛谷已登录`;
                 this.statusBarItem.show();
                 break;
             case UserStatus.SignedOut:
