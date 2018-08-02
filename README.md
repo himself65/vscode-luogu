@@ -22,6 +22,8 @@
 
 - 按下 `F1` 或 `Ctrl+Shift+P` ，查找`Luogu: 提交当前文档代码`命令，点击后按照步骤进行即可
 
+- 点击界面左侧洛谷图片，然后点击登录图标，按要求输入即可登录
+
 其他功能正在开发，尽情期待
 
 ## 完成功能
@@ -42,8 +44,10 @@
 
 ## Others
 
-图标来自：[链接到Icons8](https://icons8.cn/)
+Luogu图标来自[Luogu](https://luogu.org/)，禁止商业使用
+
+UI图标来自：[链接到Icons8](https://icons8.cn/)
 
 ## LICENSE
 
-[MIT](LICENSE) LICENSE
+Follow [MIT](LICENSE) LICENSE.

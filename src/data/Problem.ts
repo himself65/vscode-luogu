@@ -108,7 +108,7 @@ export class Problem {
         </head>
         <div id="editor-container" style="height: 100%; width: 100%">
         <h1>${this.name}</h1> 
-        <h2>题目背景</h2>
+        <h2>题目描述</h2>
         <p>${this.background}</p>
         <p>${this.description}</p>
         <h2>输入输出格式</h2>
@@ -129,7 +129,7 @@ export class Problem {
         this.sample.forEach((array, index) => {
             sample += `输入${index + 1} : \n \`\`\` \n ${array[0]} \n \`\`\` \n 输出${index + 1} : \n \`\`\` \n ${array[1]} \n \`\`\` \n`;
         });
-        return ` # ${this.name}| [${this.stringPID}](https://www.luogu.org/problemnew/show/${this.stringPID}) \n ## 题目背景 \n ${this.background} \n${this.description} \n ## 输入输出格式 \n **输入格式** \n \n ${this.inputFormat} \n \n **输出格式** \n ${this.outputFormat} \n ## 输入输出样例 \n ${sample} \n ## 说明 \n ${this.hint} \n`;
+        return ` # ${this.name}| [${this.stringPID}](https://www.luogu.org/problemnew/show/${this.stringPID}) \n \n ## 题目描述 \n \n ${this.background} \n \n ${this.description} \n \n ## 输入输出格式 \n \n **输入格式** \n \n ${this.inputFormat} \n \n **输出格式** \n \n ${this.outputFormat} \n \n ## 输入输出样例 \n \n ${sample} \n \n ## 说明 \n \n ${this.hint} \n`;
     }
 
     setType(Type: number) {
