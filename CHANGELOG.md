@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.7
+
+- Fix bugs
+
 ## 0.1.6
 
 - Update status bar item

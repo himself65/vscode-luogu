@@ -54,7 +54,7 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
             <title>${rid}</title>
         </head>
         <body>
-        <h1>请手动打开链接</h1>
+        <h1>暂不支持即时查看，请手动打开链接访问测评地址</h1>
         <a href=${url} target="_blank">${rid}</a>
         </body>
         </html>`;
