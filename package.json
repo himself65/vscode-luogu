@@ -68,7 +68,7 @@
       },
       {
         "command": "luogu.searchProblem",
-        "title": "搜索题目",
+        "title": "查看题目",
         "category": "Luogu",
         "icon": {
           "dark": "resources/dark/search-dark.png",
