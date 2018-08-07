@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.8
+
+- Fix the wrong text.
+
 ## 0.1.7
 
 - Fix bugs
