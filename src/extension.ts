@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
     };
 
     // TAG: showProblem 与 searchProblem 功能不同
-    // 前者通过 Explorer 访问题目，后者直接搜索题目
+    // 前者通过 Explorer 访问题目，后者直接查看题目
     // TODO: 之后会整合功能
     context.subscriptions.push(
         // vscode.window.registerTreeDataProvider("luoguExplorer", luoguTreeDataProvider),
