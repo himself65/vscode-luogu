@@ -17,7 +17,7 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
     let text = edtior.document.getText();
     const filePath = edtior.document.fileName;
     const fileFName = path.parse(filePath).base;
-    const O2: boolean = await vscode.window.showQuickPick(['是', '否'], {
+    const O2: boolean = await vscode.window.showQuickPick(['否', '是'], {
         placeHolder: '是否开启O2优化 (非 C/C++/Pascal 切勿开启)'
     }).then(ans => {
         if (ans === '是') {
@@ -36,9 +36,6 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
     });
     if (!id) {
         return;
-    }
-    if (O2) {
-        text = `// luogu-judger-enable-o2 \n ${text}`;
     }
     try {
         vscode.window.showInformationMessage(`${fileFName} 正在提交到 ${id}...`);
