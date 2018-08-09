@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import { Problem } from '../data/Problem';
 import { OAuthInfo, OAuth2ResponseData } from '../shared';
 import { luoguUserManager } from '../luoguUserManager';
 import { window } from 'vscode';
