@@ -4,11 +4,13 @@ import { OAuthInfo, OAuth2ResponseData } from '../shared';
 import { luoguUserManager } from '../luoguUserManager';
 import { window } from 'vscode';
 
-export async function getProblem(id: string, callback: (data: Problem) => Promise<void>): Promise<void> {
-    await Axios.get(`https://www.luogu.org/api/problem/detail/${id}`).then(res => {
+Axios.defaults.baseURL = 'https://www.luogu.org/api/';
+
+export async function getProblem(id: string): Promise<any> {
+    return await Axios.get(`problem/detail/${id}`).then(res => {
         if (res.status === 200) {
             console.log(`得到题目：${id}`);
-            callback(new Problem(res.data.data));
+            return res.data.data;
         } else {
             throw res.data;
         }
@@ -19,7 +21,7 @@ export async function getProblem(id: string, callback: (data: Problem) => Promis
 
 export async function loginUser(username: string, password: string): Promise<any> {
     console.log('正在初始化登录');
-    return await Axios.post('https://www.luogu.org/api/OAuth2/accessToken', {
+    return await Axios.post('OAuth2/accessToken', {
         'grant_type': OAuthInfo.grant_type,
         'client_id': OAuthInfo.clientID,
         'client_secret': OAuthInfo.client_secret,
@@ -59,7 +61,7 @@ export async function submitSolution(id: string, text: string, language: number 
         throw Error('您还没有登录账户');
     }
     const Authorization = `Bearer ${token}`;
-    const url = `https://www.luogu.org/api/problem/submit/${id}`;
+    const url = `problem/submit/${id}`;
     return await Axios.post(url, {
         'code': text,
         'lang': language,

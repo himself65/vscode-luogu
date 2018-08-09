@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -42,7 +42,8 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [{
+    "commands": [
+      {
         "command": "luogu.signin",
         "title": "登录洛谷账号",
         "category": "Luogu",
@@ -101,20 +102,25 @@
       }
     ],
     "viewsContainers": {
-      "activitybar": [{
-        "id": "luogu",
-        "title": "Luogu",
-        "icon": "resources/img/luogu-very-small.png"
-      }]
+      "activitybar": [
+        {
+          "id": "luogu",
+          "title": "Luogu",
+          "icon": "resources/img/luogu-very-small.png"
+        }
+      ]
     },
     "views": {
-      "luogu": [{
-        "id": "luoguExplorer",
-        "name": "Problems"
-      }]
+      "luogu": [
+        {
+          "id": "luoguExplorer",
+          "name": "Problems"
+        }
+      ]
     },
     "menus": {
-      "view/title": [{
+      "view/title": [
+        {
           "command": "luogu.signin",
           "when": "view == luoguExplorer",
           "group": "navigation@0"
@@ -131,49 +137,57 @@
           "group": "navigation@2"
         }
       ],
-      "view/item/context": [{
-        "command": "luogu.showProblem",
-        "when": "view == luoguExplorer && viewItem == problem",
-        "group": "luogu@1"
-      }],
-      "explorer/context": [{
-        "command": "luogu.submitSolution",
-        "when": "explorerResourceIsFolder == false",
-        "group": "luogu@1"
-      }],
-      "editor/context": [{
-        "command": "luogu.submitSolution",
-        "group": "luogu@1"
-      }]
+      "view/item/context": [
+        {
+          "command": "luogu.showProblem",
+          "when": "view == luoguExplorer && viewItem == problem",
+          "group": "luogu@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "luogu.submitSolution",
+          "when": "explorerResourceIsFolder == false",
+          "group": "luogu@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "luogu.submitSolution",
+          "group": "luogu@1"
+        }
+      ]
     },
-    "configuration": [{
-      "title": "Luogu",
-      "properties": {
-        "luogu.defaultLanguage": {
-          "type": "string",
-          "enum": [
-            "Auto",
-            "Pascal",
-            "C",
-            "C++",
-            "C++11",
-            "Python2",
-            "Python3",
-            "Java",
-            "Node.js"
-          ],
-          "default": "Auto",
-          "scope": "window",
-          "description": "Default language for solving the problems."
-        },
-        "luogu.showSelectLanguageHint": {
-          "type": "boolean",
-          "default": "true",
-          "scope": "window",
-          "description": "Show Select Language Hint When Submit"
+    "configuration": [
+      {
+        "title": "Luogu",
+        "properties": {
+          "luogu.defaultLanguage": {
+            "type": "string",
+            "enum": [
+              "Auto",
+              "Pascal",
+              "C",
+              "C++",
+              "C++11",
+              "Python2",
+              "Python3",
+              "Java",
+              "Node.js"
+            ],
+            "default": "Auto",
+            "scope": "window",
+            "description": "Default language for solving the problems."
+          },
+          "luogu.showSelectLanguageHint": {
+            "type": "boolean",
+            "default": "true",
+            "scope": "window",
+            "description": "Show Select Language Hint When Submit"
+          }
         }
       }
-    }]
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

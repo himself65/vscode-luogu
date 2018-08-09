@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.9
+
+- Add info message when the token expired
+  
+- Fix bugs
+
 ## 0.1.8
 
 - Fix the wrong text.

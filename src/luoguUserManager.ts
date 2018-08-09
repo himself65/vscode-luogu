@@ -22,7 +22,7 @@ export class UserInfo implements IUserInfo {
     access_token?: string;
     refresh_token?: string;
     cookie?: string;
-    end_time: Date;
+    expires_in: number;
     constructor(init?: Partial<UserInfo>) {
         Object.assign(this, init);
     }
@@ -32,12 +32,17 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
     private currentUser: string | undefined;
     private userStatus: UserStatus;
     private userInfo: UserInfo;
+    private endTime: number | undefined;
     constructor(init?: Partial<LuoguUserManager>) {
         console.log('Init LuoguUserManager');
         super();
         if (init) {
             console.log('本地实例化用户');
             Object.assign(this, init);
+            if (this.endTime && this.endTime < Date.now()) {
+                // 过期
+                this.signOut();
+            }
         }
         else {
             console.log('新建用户');
@@ -120,6 +125,8 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
                 vscode.window.showInformationMessage("成功登录");
                 this.userStatus = UserStatus.SignedIn;
                 this.userInfo = new UserInfo(data);
+                this.endTime = Date.now() + this.userInfo.expires_in * 1000 - 1000 * 60 * 60;
+                // 设置结束时间, 提前一小时过期
                 this.emit('stateChanged');
             }).catch(error => { throw error; });
         } catch (error) {
@@ -132,7 +139,7 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
      * 
      * @param channel 用于消息的输出
      */
-    public async signOut(channel: vscode.OutputChannel): Promise<void> {
+    public async signOut(channel?: vscode.OutputChannel): Promise<void> {
         this.currentUser = null;
         this.userStatus = UserStatus.SignedOut;
         this.userInfo = new UserInfo();
