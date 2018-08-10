@@ -6,7 +6,7 @@
 [![VERSION](https://vsmarketplacebadge.apphb.com/version/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
 [![DownloadCount](https://vsmarketplacebadge.apphb.com/installs/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
 [![RATING](https://vsmarketplacebadge.apphb.com/rating-star/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
-[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Himself65/vscode-luogu/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/Himself65/vscode-luogu/blob/master/LICENSE)
 
 轻松的让你在 VS Code 上提交洛谷代码
 
