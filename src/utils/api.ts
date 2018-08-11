@@ -2,6 +2,7 @@ import Axios from 'axios';
 import { OAuthInfo, OAuth2ResponseData } from '../shared';
 import { luoguUserManager } from '../luoguUserManager';
 import { window } from 'vscode';
+import { Problem } from '../data/Problem';
 
 Axios.defaults.baseURL = 'https://www.luogu.org/api/';
 
@@ -9,7 +10,7 @@ export async function getProblem(id: string): Promise<any> {
     return await Axios.get(`problem/detail/${id}`).then(res => {
         if (res.status === 200) {
             console.log(`得到题目：${id}`);
-            return res.data.data;
+            return new Problem(res.data.data);
         } else {
             throw res.data;
         }

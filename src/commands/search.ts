@@ -4,7 +4,6 @@ import * as vscode from 'vscode';
 import { getProblem } from '../utils/api';
 import { md } from '../utils/markdown';
 import { promptForOpenOutputChannel, DialogType } from '../utils/uiUtils';
-import { Problem } from '../data/Problem';
 
 export async function search(channel: vscode.OutputChannel, uri?: vscode.Uri): Promise<void> {
     let input = await vscode.window.showInputBox({
@@ -14,7 +13,6 @@ export async function search(channel: vscode.OutputChannel, uri?: vscode.Uri): P
     if (!input) { return; }
     try {
         await getProblem(input).then(problem => {
-            problem = new Problem(problem);
             let pannel = vscode.window.createWebviewPanel(problem.getStringPID(), problem.getName(), vscode.ViewColumn.Two);
             let content = md.render(problem.toMarkDown());
             let html = `<!DOCTYPE html>
@@ -31,6 +29,9 @@ export async function search(channel: vscode.OutputChannel, uri?: vscode.Uri): P
         </body>
         </html>`;
             pannel.webview.html = html;
+            return problem;
+        }).then(problem => {
+            problem.save();
         }).catch(err => { throw err; });
     } catch (error) {
         console.log(error);

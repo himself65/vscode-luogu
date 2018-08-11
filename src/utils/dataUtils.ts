@@ -2,10 +2,13 @@ import * as os from "os";
 import * as path from "path";
 import * as fse from 'fs-extra';
 import { LuoguUserManager } from "../luoguUserManager";
+import { error } from "util";
 
 const luoguJSONName = 'luogu.json';
 
 export const luoguPath = path.join(os.homedir(), '.luogu');
+
+export const problemPath = path.join(luoguPath,'problems');
 
 export const luoguJSONPath = path.join(luoguPath, luoguJSONName);
 
@@ -13,12 +16,42 @@ export async function save(): Promise<void> {
     throw Error('还没做');
 }
 
+// 创建文件夹
+export async function createFolder(path: string): Promise<void> {
+    return await fse.ensureDir(path);
+}
+
+export async function saveJsonToFile(path: string, obj: object): Promise<void> {
+    if (!path || !obj) throw error;
+    try {
+        return await fse.writeJson(path, obj);
+    } catch (err) {
+        throw err;
+    }
+}
+
+// 从文件中加载数据，格式JSON
+export async function loadJsonFromFile(path: string): Promise<any> {
+    try {
+        const exist: boolean = fse.pathExistsSync(path);
+        if (!exist)
+            return null;
+        else
+            return await fse.readJson(path);
+    } catch (err) {
+        throw err;
+    }
+}
+
 export function getUserFromLocal() {
-    const exist: boolean = fse.pathExistsSync(luoguJSONPath);
-    if (!exist) {
-        return null;
-    } else {
-        return fse.readJsonSync(luoguJSONPath);
+    try {
+        const exist: boolean = fse.pathExistsSync(luoguJSONPath);
+        if (!exist)
+            return null;
+        else
+            return fse.readJsonSync(luoguJSONPath);
+    } catch (err) {
+        throw err;
     }
 }
 

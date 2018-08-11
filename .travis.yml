@@ -1,5 +1,10 @@
 language: node_js
+os:
+  - osx
+  - linux
 before_script:
   - npm install
+  - npm run vscode:prepublish
 script:
-  - tsc -p ./
+  - npm run compile
+  - npm test --silent

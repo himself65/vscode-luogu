@@ -1,3 +1,6 @@
+import { saveJsonToFile, problemPath, loadJsonFromFile } from "../utils/dataUtils";
+import * as path from 'path';
+
 export interface IAPIProblem {
     StringPID: string;
     Tags: Tag[];
@@ -83,6 +86,17 @@ export class Problem {
         this.flag = fields.Flag;
         this.description = fields.Description;
         this.background = fields.Background;
+    }
+
+    static async load(pid: string): Promise<any> {
+        const pt = path.join(problemPath, pid);
+        return await loadJsonFromFile(pt).then(problem => {
+            return new Problem(problem);
+        });
+    }
+
+    async save(): Promise<void> {
+        return await saveJsonToFile(problemPath, this);
     }
 
     toHTML(): string {
