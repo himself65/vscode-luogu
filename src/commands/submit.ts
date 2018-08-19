@@ -26,9 +26,10 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
             return false;
         }
     });
-    const selected = await vscode.window.showQuickPick(Languages).then((value) => {
+    const langs = Object.keys(Languages).filter(k => typeof Languages[k as any] === "number");
+    const selected = await vscode.window.showQuickPick(langs).then((value) => {
         const v = getSelectedLanguage(value);
-        return v === -1 ? 0 : v;
+        return (v === -1 || !v) ? 0 : v;
     });
     const id = await vscode.window.showInputBox({
         placeHolder: '输入提交到的题目ID',

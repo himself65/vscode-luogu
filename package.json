@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -26,7 +26,8 @@
     "luogu",
     "algorithm",
     "interview",
-    "OI"
+    "OI",
+    "洛谷"
   ],
   "preview": true,
   "activationEvents": [
@@ -42,8 +43,7 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
+    "commands": [{
         "command": "luogu.signin",
         "title": "登录洛谷账号",
         "category": "Luogu",
@@ -102,25 +102,20 @@
       }
     ],
     "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "luogu",
-          "title": "Luogu",
-          "icon": "resources/img/luogu-very-small.png"
-        }
-      ]
+      "activitybar": [{
+        "id": "luogu",
+        "title": "Luogu",
+        "icon": "resources/img/luogu-very-small.png"
+      }]
     },
     "views": {
-      "luogu": [
-        {
-          "id": "luoguExplorer",
-          "name": "Problems"
-        }
-      ]
+      "luogu": [{
+        "id": "luoguExplorer",
+        "name": "Problems"
+      }]
     },
     "menus": {
-      "view/title": [
-        {
+      "view/title": [{
           "command": "luogu.signin",
           "when": "view == luoguExplorer",
           "group": "navigation@0"
@@ -137,57 +132,50 @@
           "group": "navigation@2"
         }
       ],
-      "view/item/context": [
-        {
-          "command": "luogu.showProblem",
-          "when": "view == luoguExplorer && viewItem == problem",
-          "group": "luogu@1"
-        }
-      ],
-      "explorer/context": [
-        {
-          "command": "luogu.submitSolution",
-          "when": "explorerResourceIsFolder == false",
-          "group": "luogu@1"
-        }
-      ],
-      "editor/context": [
-        {
-          "command": "luogu.submitSolution",
-          "group": "luogu@1"
-        }
-      ]
+      "view/item/context": [{
+        "command": "luogu.showProblem",
+        "when": "view == luoguExplorer && viewItem == problem",
+        "group": "luogu@1"
+      }],
+      "explorer/context": [{
+        "command": "luogu.submitSolution",
+        "when": "explorerResourceIsFolder == false",
+        "group": "luogu@1"
+      }],
+      "editor/context": [{
+        "command": "luogu.submitSolution",
+        "group": "luogu@1"
+      }]
     },
-    "configuration": [
-      {
-        "title": "Luogu",
-        "properties": {
-          "luogu.defaultLanguage": {
-            "type": "string",
-            "enum": [
-              "Auto",
-              "Pascal",
-              "C",
-              "C++",
-              "C++11",
-              "Python2",
-              "Python3",
-              "Java",
-              "Node.js"
-            ],
-            "default": "Auto",
-            "scope": "window",
-            "description": "Default language for solving the problems."
-          },
-          "luogu.showSelectLanguageHint": {
-            "type": "boolean",
-            "default": "true",
-            "scope": "window",
-            "description": "Show Select Language Hint When Submit"
-          }
+    "configuration": [{
+      "title": "Luogu",
+      "properties": {
+        "luogu.defaultLanguage": {
+          "type": "string",
+          "enum": [
+            "Auto",
+            "Pascal",
+            "C",
+            "C++",
+            "C++11",
+            "C++14",
+            "Python2",
+            "Python3",
+            "Java",
+            "Node.js"
+          ],
+          "default": "Auto",
+          "scope": "window",
+          "description": "Default language for solving the problems."
+        },
+        "luogu.showSelectLanguageHint": {
+          "type": "boolean",
+          "default": "true",
+          "scope": "window",
+          "description": "Show Select Language Hint When Submit"
         }
       }
-    ]
+    }]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -198,6 +186,7 @@
     "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose"
   },
   "devDependencies": {
+    "@types/ws": "^5.1.2",
     "@types/fs-extra": "^5.0.4",
     "@types/mocha": "^2.2.42",
     "@types/node": "^7.0.43",
@@ -213,6 +202,7 @@
     "fs-extra": "^7.0.0",
     "lodash": "^4.17.10",
     "markdown-it": "^8.4.2",
-    "markdown-it-highlightjs": "^3.0.0"
+    "markdown-it-highlightjs": "^3.0.0",
+    "ws": "^6.0.0"
   }
 }

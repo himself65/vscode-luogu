@@ -5,17 +5,22 @@ export enum UserStatus {
     SignedOut = 2,
 }
 
-export const Languages = [
-    "Auto",
-    "Pascal",
-    "C",
-    "C++",
-    "C++11",
-    "Python2",
-    "Python3",
-    "Java",
-    "Node.js"
-];
+export enum Languages {
+    "Auto" = 1,
+    "Pascal" = 2,
+    "C" = 3,
+    "C++" = 4,
+    "C++11" = 5,
+    "C++14" = 11,
+    "Python2" = 6,
+    "Python3" = 7,
+    "Java" = 8,
+    "Node.js" = 9,
+    // "C++17" = Infinity,
+    // "Golang" = Infinity,
+    // "Rust" = Infinity,
+    // "PHP" = Infinity
+}
 
 export enum ProblemState {
     "Waiting" = 0,

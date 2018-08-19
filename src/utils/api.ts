@@ -56,7 +56,6 @@ export async function refresh(refresh_token: string, callback: (data: OAuth2Resp
 
 export async function submitSolution(id: string, text: string, language: number = 0, enableO2: boolean = false): Promise<void> {
     const token = luoguUserManager.getUserAccessToken();
-    console.log(token);
     if (!token) {
         throw Error('您还没有登录账户');
     }
@@ -69,7 +68,6 @@ export async function submitSolution(id: string, text: string, language: number 
         'verify': '',
     }, { 'headers': { 'Authorization': Authorization } }).then(res => {
         if (res.data.status === 200) {
-            console.log(res.data);
             return res.data.data.rid;
         } else if (res.data.status === 401) {
             window.showErrorMessage('您没有登录');

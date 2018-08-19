@@ -120,21 +120,21 @@ export class Problem {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>${this.name}</title>
         </head>
-        <div id="editor-container" style="height: 100%; width: 100%">
-        <h1>${this.name}</h1> 
-        <h2>题目描述</h2>
-        <p>${this.background}</p>
-        <p>${this.description}</p>
-        <h2>输入输出格式</h2>
-        <strong>输入格式</strong>
-        <p>${this.inputFormat}</p>
-        <strong>输出格式</strong>
-        <p>${this.outputFormat}</p>
-        <h2>输入输出样例</h2>
-        ${sample}
-        <h2>说明</h2>
-        <p>${this.hint}</p>
-        </div>
+        <article id="editor-container" style="height: 100%; width: 100%">
+            <h1>${this.name}</h1> 
+            <h2>题目描述</h2>
+            <p>${this.background}</p>
+            <p>${this.description}</p>
+            <h2>输入输出格式</h2>
+            <strong>输入格式</strong>
+            <p>${this.inputFormat}</p>
+            <strong>输出格式</strong>
+            <p>${this.outputFormat}</p>
+            <h2>输入输出样例</h2>
+            ${sample}
+            <h2>说明</h2>
+            <p>${this.hint}</p>
+        </article>
         </html>`;
     }
 

@@ -1,12 +1,13 @@
-import * as API from '../utils/api';
 import * as assert from 'assert';
+import { Problem } from '../data/Problem';
 
 suite("Extension Tests", () => {
 
-    test("API Tests", async () => {
-        const problem = await API.getProblem("P1001").then(problem => {
-            return problem;
-        });
-        assert(problem !== null, '返回为空');
+    
+    test("Data Tests", () => {
+        let problem = new Problem();
+        assert(problem !== null, '题目初始化错误');
+        problem.setBackground("Hello,world");
+        assert(problem.getBackground() === "Hello,world", "题目保存错误");
     });
 });
