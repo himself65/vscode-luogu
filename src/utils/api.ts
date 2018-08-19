@@ -39,8 +39,8 @@ export async function loginUser(username: string, password: string): Promise<any
     });
 }
 
-export async function refresh(refresh_token: string, callback: (data: OAuth2ResponseData) => Promise<void>): Promise<void> {
-    await Axios.post(OAuthInfo.authorizationUri, {
+export async function refresh(refresh_token: string, callback: (data: OAuth2ResponseData) => Promise<void>): Promise<any> {
+    return await Axios.post(OAuthInfo.authorizationUri, {
         'refresh_token': refresh_token
     }).then(res => {
         if (res.status === 200) {
@@ -54,7 +54,17 @@ export async function refresh(refresh_token: string, callback: (data: OAuth2Resp
     });
 }
 
-export async function submitSolution(id: string, text: string, language: number = 0, enableO2: boolean = false): Promise<void> {
+/**
+ * @api 提交题解
+ * @async
+ * @param {string} id 提交id
+ * @param {string} text 代码
+ * @param {number} language 选择语言
+ * @param {boolean} enableO2 是否启用O2优化
+ * 
+ * @returns {number} 测评id
+ */
+export async function submitSolution(id: string, text: string, language: number = 0, enableO2: boolean = false): Promise<any> {
     const token = luoguUserManager.getUserAccessToken();
     if (!token) {
         throw Error('您还没有登录账户');

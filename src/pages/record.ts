@@ -7,12 +7,12 @@ function renderData(detail, status, score, time, memory) {
 
 }
 
-//
+// 正在加载
 function showLoading() {
 
 }
 
-async function connectWs(rid: string, channel: vscode.OutputChannel) {
+export async function connectWs(rid: string, channel: vscode.OutputChannel): Promise<any> {
     let ws = null;
     try {
         ws = new WebSocket('wss://ws.luogu.org/ws');
@@ -39,5 +39,6 @@ async function connectWs(rid: string, channel: vscode.OutputChannel) {
             data = data.welcome_message;
             renderData(data.detail, data.status, data.score, data.time, data.memory);
         }
+        return '';
     };
 }

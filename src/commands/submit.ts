@@ -6,9 +6,14 @@ import { submitSolution } from '../utils/api';
 import { Languages, UserStatus } from '../shared';
 import { getSelectedLanguage } from '../utils/workspaceUtils';
 import { luoguUserManager } from '../luoguUserManager';
+import { connectWs } from '../pages/record';
 
 /**
  * 提交题目答案
+ * @param {vscode.OutputChannel} channel 
+ * @param {vscode.Uri} uri 
+ * 
+ * @returns {Promise<void>}
  */
 export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): Promise<void> {
     let edtior = vscode.window.activeTextEditor;
@@ -40,7 +45,7 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
     }
     try {
         vscode.window.showInformationMessage(`${fileFName} 正在提交到 ${id}...`);
-        await submitSolution(id, text, selected, O2).then(rid => {
+        await submitSolution(id, text, selected, O2).then(async (rid) => {
             vscode.window.showInformationMessage('提交成功');
             const url = `https://www.luogu.org/record/show?rid=${rid}`;
             let pannel = vscode.window.createWebviewPanel(`${rid}`, `${rid}`, vscode.ViewColumn.Two);
@@ -57,6 +62,9 @@ export async function submit(channel: vscode.OutputChannel, uri?: vscode.Uri): P
         </body>
         </html>`;
             pannel.webview.html = html;
+            await connectWs(rid, channel).then(content => {
+                pannel.webview.html = content;
+            });
         });
     } catch (error) {
         vscode.window.showErrorMessage('提交失败');

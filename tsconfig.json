@@ -24,6 +24,10 @@
     "exclude": [
         "node_modules",
         ".vscode-test",
+        "CHANGELOG.md",
+        ".travis.yml",
+        ".gitignore",
+        ".gitattributes",
         "CHANGELOG.md"
     ]
 }
