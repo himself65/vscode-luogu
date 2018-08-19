@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.10
+
+- Support C++14
+
+- Fix bugs
+
 ## 0.1.9
 
 - Add info message when the token expired
