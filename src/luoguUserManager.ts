@@ -5,17 +5,50 @@ import { loginUser, refresh } from "./utils/api";
 import { promptForOpenOutputChannel, DialogType } from "./utils/uiUtils";
 import { saveUserToLocal, getUserFromLocal } from "./utils/dataUtils";
 
+/**
+ * 接口遵循`UserInfo`中的所有属性
+ * @interface
+ */
+export interface UserInfoData {
+    username?: string;
+    password?: string;
+    access_token?: string;
+    refresh_token?: string;
+    cookie?: string;
+    expires_in: number;
+}
+
+/**
+ * 接口遵循`LuoguUserManager`中的所有属性
+ * @interface
+ */
+export interface LuoguUserData {
+    currentUser: string | undefined;
+    userStatus: UserStatus;
+    userInfo: UserInfo;
+    endTime: number | undefined;
+}
+
+/**
+ * @interface
+ */
 export interface ILuoguUserManager extends EventEmitter {
     refreshLoginStatus(channel: vscode.OutputChannel): void;
     getStatus(): UserStatus;
     getUser(): string | undefined;
     getUserAccessToken(): string | undefined;
-    signIn(channel: vscode.OutputChannel): void;
-    signOut(channel: vscode.OutputChannel): void;
+    signIn(channel: vscode.OutputChannel): Promise<void>;
+    signOut(channel: vscode.OutputChannel): Promise<void>;
 }
 
+/**
+ * @interface
+ */
 export interface IUserInfo { }
 
+/**
+ * @class
+ */
 export class UserInfo implements IUserInfo {
     username?: string;
     password?: string;
@@ -28,6 +61,9 @@ export class UserInfo implements IUserInfo {
     }
 }
 
+/**
+ * @class
+ */
 export class LuoguUserManager extends EventEmitter implements ILuoguUserManager {
     private currentUser: string | undefined;
     private userStatus: UserStatus;
@@ -50,12 +86,10 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
             this.currentUser = undefined;
             this.userStatus = UserStatus.SignedOut;
         }
-        // 用户状态改变
+        // 令牌过期
         this.on('stateChanged', () => {
-            console.log('用户状态改变');
             this.saveToLocal();
         });
-        // 令牌过期
         this.on('tokenExpired', channel => {
             this.refreshToken(channel);
         });
@@ -66,7 +100,12 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
      */
     private async saveToLocal(): Promise<void> {
         try {
-            await saveUserToLocal(this);
+            await saveUserToLocal({
+                currentUser: this.currentUser,
+                userStatus: this.userStatus,
+                userInfo: this.userInfo,
+                endTime: this.endTime
+            });
         } catch (error) {
             console.error(error);
         }
@@ -127,10 +166,10 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
                 this.userInfo = new UserInfo(data);
                 this.endTime = Date.now() + this.userInfo.expires_in * 1000 - 1000 * 60 * 60;
                 // 设置结束时间, 提前一小时过期
+            }).then(() => {
                 this.emit('stateChanged');
             }).catch(error => { throw error; });
         } catch (error) {
-            console.error(error);
             await promptForOpenOutputChannel(error, DialogType.error, channel);
         }
     }
@@ -140,10 +179,15 @@ export class LuoguUserManager extends EventEmitter implements ILuoguUserManager 
      * @param channel 用于消息的输出
      */
     public async signOut(channel?: vscode.OutputChannel): Promise<void> {
-        this.currentUser = null;
-        this.userStatus = UserStatus.SignedOut;
-        this.userInfo = new UserInfo();
-        this.emit('stateChanged');
+        try {
+            this.currentUser = null;
+            this.userStatus = UserStatus.SignedOut;
+            this.userInfo = new UserInfo();
+            this.emit('stateChanged');
+            vscode.window.showInformationMessage("退出成功");
+        } catch (error) {
+            await promptForOpenOutputChannel(error, DialogType.error, channel);
+        }
     }
 
     /**
