@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -166,16 +166,20 @@
           "luogu.defaultLanguage": {
             "type": "string",
             "enum": [
-              "Auto",
               "Pascal",
               "C",
               "C++",
               "C++11",
               "C++14",
+              "C++17",
               "Python2",
               "Python3",
-              "Java",
-              "Node.js"
+              "Java8",
+              "Node.js",
+              "GO",
+              "Ruby",
+              "Rust",
+              "PHP7"
             ],
             "default": "Auto",
             "scope": "window",

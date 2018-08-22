@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.12
+
+- Support C++17/GO/Ruby/PHP7/Rust
+
 ## 0.1.11
 
 - Fix Cann't submit the solution and other bugs

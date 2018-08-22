@@ -6,20 +6,20 @@ export enum UserStatus {
 }
 
 export enum Languages {
-    "Auto" = 1,
-    "Pascal" = 2,
-    "C" = 3,
-    "C++" = 4,
-    "C++11" = 5,
+    "Pascal" = 1,
+    "C" = 2,
+    "C++" = 3,
+    "C++11" = 4,
     "C++14" = 11,
+    "C++17" = 12,
     "Python2" = 6,
     "Python3" = 7,
-    "Java" = 8,
+    "Java8" = 8,
     "Node.js" = 9,
-    // "C++17" = Infinity,
-    // "Golang" = Infinity,
-    // "Rust" = Infinity,
-    // "PHP" = Infinity
+    "GO" = 14,
+    "Ruby" = 13,
+    "Rust" = 15,
+    "PHP7" = 16
 }
 
 export enum ProblemState {
