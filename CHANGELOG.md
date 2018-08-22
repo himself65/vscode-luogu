@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.11
+
+- Fix Cann't submit the solution and other bugs
+
 ## 0.1.10
 
 - Support C++14
