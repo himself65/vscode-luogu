@@ -19,7 +19,9 @@ export enum Languages {
     "GO" = 14,
     "Ruby" = 13,
     "Rust" = 15,
-    "PHP7" = 16
+    "PHP7" = 16,
+    "C#" = 17,
+    "VisualBasic" = 18
 }
 
 export enum ProblemState {
