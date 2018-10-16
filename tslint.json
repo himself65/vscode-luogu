@@ -1,4 +1,5 @@
 {
+	"extends": "tslint-config-standard",
 	"rules": {
 		"no-string-throw": true,
 		"no-unused-expression": true,

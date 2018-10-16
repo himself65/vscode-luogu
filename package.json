@@ -206,13 +206,14 @@
     "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose"
   },
   "devDependencies": {
-    "@types/ws": "^5.1.2",
     "@types/fs-extra": "^5.0.4",
-    "@types/mocha": "^2.2.42",
-    "@types/node": "^7.0.43",
     "@types/lodash": "^4.14.115",
     "@types/markdown-it": "0.0.4",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^7.0.43",
+    "@types/ws": "^5.1.2",
     "tslint": "^5.8.0",
+    "tslint-config-standard": "^8.0.1",
     "typescript": "^2.6.1",
     "vscode": "^1.1.6"
   },
