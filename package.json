@@ -6,6 +6,7 @@
   "version": "0.1.13",
   "license": "MIT",
   "publisher": "himself6565",
+  "types": "types/index.d.ts",
   "engines": {
     "vscode": "^1.25.0"
   },
@@ -202,7 +203,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "test": "cross-env node ./node_modules/vscode/bin/test",
     "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose"
   },
   "devDependencies": {
@@ -212,6 +213,8 @@
     "@types/mocha": "^2.2.42",
     "@types/node": "^7.0.43",
     "@types/ws": "^5.1.2",
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0",
     "tslint": "^5.8.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^2.6.1",
