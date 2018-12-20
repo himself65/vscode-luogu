@@ -1,16 +1,29 @@
 {
-	"extends": "tslint-config-standard",
-	"rules": {
-		"no-string-throw": true,
-		"no-unused-expression": true,
-		"no-duplicate-variable": true,
-		"curly": true,
-		"class-name": true,
-		"semicolon": [
-			false,
-			"always"
-		],
-		"triple-equals": true
-	},
-	"defaultSeverity": "warning"
+  "defaultSeverity": "error",
+  "extends": "tslint-config-standard",
+  "linterOptions": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "**/*.test.(j|t)s",
+      "node_modules/**/*"
+    ]
+  },
+  "rules": {
+    "array-type": [
+      true,
+      "array"
+    ],
+    "use-type-alias": true,
+    "no-inferrable-types": true,
+    "unified-signatures": true,
+    "use-default-type-parameter": true,
+    "no-undefined-argument": true,
+    "no-unused-variable": false,
+    "no-invalid-this": false,
+    "restrict-plus-operands": false,
+    "no-useless-cast": false
+  },
+  "rulesDirectory": []
 }
