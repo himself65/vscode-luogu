@@ -12,14 +12,21 @@ export enum Languages {
   'C++17' = 12,
   'Python2' = 6,
   'Python3' = 7,
+  'Pypy2' = 24,
+  'Pypy3' = 25,
   'Java8' = 8,
   'Node.js' = 9,
-  'GO' = 14,
   'Ruby' = 13,
+  'Go' = 14,
   'Rust' = 15,
   'PHP7' = 16,
-  'C#' = 17,
-  'VisualBasic' = 18
+  'C#Momo' = 17,
+  'VisualBasic' = 18,
+  'Haskell' = 19,
+  'Kotlin/Native' = 20,
+  'Kotlin/JVM' = 21,
+  'Scala' = 22,
+  'Perl' = 23
 }
 
 export enum ProblemState {
