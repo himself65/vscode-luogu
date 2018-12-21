@@ -22,8 +22,15 @@
     "no-undefined-argument": true,
     "no-unused-variable": false,
     "no-invalid-this": false,
+    "no-empty": {
+      "severity": "warn"
+    },
     "restrict-plus-operands": false,
-    "no-useless-cast": false
+    "no-useless-cast": false,
+    "variable-name": {
+      "severity": "warn"
+    },
+    "allowUnusedLabels": false
   },
   "rulesDirectory": []
 }

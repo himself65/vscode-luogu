@@ -167,6 +167,7 @@
           "luogu.defaultLanguage": {
             "type": "string",
             "enum": [
+              "Auto",
               "Pascal",
               "C",
               "C++",
@@ -175,14 +176,21 @@
               "C++17",
               "Python2",
               "Python3",
+              "Pypy2",
+              "Pypy3",
               "Java8",
               "Node.js",
-              "GO",
               "Ruby",
+              "Go",
               "Rust",
               "PHP7",
-              "C#",
-              "VisualBasic"
+              "C#Momo",
+              "VisualBasic",
+              "Haskell",
+              "Kotlin/Native",
+              "Kotlin/JVM",
+              "Scala",
+              "Perl"
             ],
             "default": "Auto",
             "scope": "window",
@@ -204,7 +212,8 @@
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "cross-env node ./node_modules/vscode/bin/test",
-    "lint": "tslint --project tsconfig.json -e src/*.d.ts -t verbose"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint--fix": "npm run lint --fix"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.4",
@@ -215,9 +224,10 @@
     "@types/ws": "^5.1.2",
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
-    "tslint": "^5.8.0",
+    "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
-    "typescript": "^2.6.1",
+    "typescript": "^3.2.2",
+    "typescript-eslint-parser": "^21.0.2",
     "vscode": "^1.1.6"
   },
   "dependencies": {

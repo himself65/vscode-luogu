@@ -1,109 +1,109 @@
-import { saveJsonToFile, problemPath, loadJsonFromFile } from '../utils/dataUtils';
-import * as path from 'path';
+import { saveJsonToFile, problemPath, loadJsonFromFile } from '../utils/dataUtils'
+import * as path from 'path'
 
 export interface IAPIProblem {
-  StringPID: string;
-  Tags: Tag[];
-  Type: number;
-  Sample: [string[]];
-  InputFormat: string;
-  OutputFormat: string;
-  Name: string;
-  Hint: string;
-  Flag: string;
-  Description: string;
-  Background: string;
-  Translation?: string;
+  StringPID: string
+  Tags: Tag[]
+  Type: number
+  Sample: [string[]]
+  InputFormat: string
+  OutputFormat: string
+  Name: string
+  Hint: string
+  Flag: string
+  Description: string
+  Background: string
+  Translation?: string
 }
 
 export interface IAPITag {
-  Id: number;
-  Name: string;
-  ParentId: number;
+  Id: number
+  Name: string
+  ParentId: number
 }
 
 export class Tag {
-  private id: number = 0;
-  private name: string = '';
-  private parentId: number = 0;
+  private id = 0
+  private name = ''
+  private parentId = 0
 
   constructor (fields?: IAPITag) {
-    if (!fields) { return; }
-    this.id = fields.Id;
-    this.name = fields.Name;
-    this.parentId = fields.ParentId;
+    if (!fields) { return }
+    this.id = fields.Id
+    this.name = fields.Name
+    this.parentId = fields.ParentId
   }
 
   setID (Id: number) {
-    this.id = Id;
+    this.id = Id
   }
 
   getID () {
-    return this.id;
+    return this.id
   }
 
   setName (Name: string) {
-    this.name = Name;
+    this.name = Name
   }
 
   getName () {
-    return this.name;
+    return this.name
   }
 
   setParentID (ParentId: number) {
-    this.parentId = ParentId;
+    this.parentId = ParentId
   }
 
   getParentID () {
-    return this.parentId;
+    return this.parentId
   }
 }
 
 export class Problem {
-  private stringPID: string = '';
-  private tags: Tag[] = [];
-  private type: number = 0;
-  private sample: [string[]] = [[]];
-  private inputFormat: string = '';
-  private outputFormat: string = '';
-  private name: string = '';
-  private hint: string = '';
-  private flag: string = '';
-  private description: string = '';
-  private background: string = '';
-  private translation?: string;
+  private stringPID = ''
+  private tags: Tag[] = []
+  private type = 0
+  private sample: [string[]] = [[]]
+  private inputFormat = ''
+  private outputFormat = ''
+  private name = ''
+  private hint = ''
+  private flag = ''
+  private description = ''
+  private background = ''
+  private translation?: string
 
   public constructor (
         fields?: IAPIProblem
     ) {
-    if (!fields) { return; }
-    this.stringPID = fields.StringPID;
-    this.tags = fields.Tags;
-    this.type = fields.Type;
-    this.sample = fields.Sample;
-    this.inputFormat = fields.InputFormat;
-    this.outputFormat = fields.OutputFormat;
-    this.name = fields.Name;
-    this.hint = fields.Hint;
-    this.flag = fields.Flag;
-    this.description = fields.Description;
-    this.background = fields.Background;
-    this.translation = fields.Translation;
+    if (!fields) { return }
+    this.stringPID = fields.StringPID
+    this.tags = fields.Tags
+    this.type = fields.Type
+    this.sample = fields.Sample
+    this.inputFormat = fields.InputFormat
+    this.outputFormat = fields.OutputFormat
+    this.name = fields.Name
+    this.hint = fields.Hint
+    this.flag = fields.Flag
+    this.description = fields.Description
+    this.background = fields.Background
+    this.translation = fields.Translation
   }
 
   static async load (pid: string): Promise<any> {
-    const pt = path.join(problemPath, pid);
+    const pt = path.join(problemPath, pid)
     return loadJsonFromFile(pt).then(problem => {
-      return new Problem(problem);
-    });
+      return new Problem(problem)
+    })
   }
 
   async save (): Promise<void> {
-    return saveJsonToFile(problemPath, this);
+    return saveJsonToFile(problemPath, this)
   }
 
   toHTML (): string {
-    let sample: string = '';
+    let sample = ''
     this.sample.forEach((array, index) => {
       sample += `<strong>输入${index + 1}</strong>:
                     <p>
@@ -113,8 +113,8 @@ export class Problem {
                     <p>
                     ${array[1]}
                     </p>
-                    `;
-    });
+                    `
+    })
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -139,104 +139,104 @@ export class Problem {
             <h2>说明</h2>
             <p>${this.hint}</p>
         </article>
-        </html>`;
+        </html>`
   }
 
   toMarkDown (): string {
-    console.log(this.translation);
+    console.log(this.translation)
 
-    let sample: string = '';
+    let sample = ''
     this.sample.forEach((array, index) => {
-      sample += `输入${index + 1} : \n \`\`\` \n ${array[0]} \n \`\`\` \n 输出${index + 1} : \n \`\`\` \n ${array[1]} \n \`\`\` \n`;
-    });
-    return ` # ${this.name}| [${this.stringPID}](https://www.luogu.org/problemnew/show/${this.stringPID}) \n \n ${this.translation || ''} \n \n ## 题目描述 \n \n ${this.background} \n \n ${this.description} \n \n ## 输入输出格式 \n \n **输入格式** \n \n ${this.inputFormat} \n \n **输出格式** \n \n ${this.outputFormat} \n \n ## 输入输出样例 \n \n ${sample} \n \n ## 说明 \n \n ${this.hint} \n`;
+      sample += `输入${index + 1} : \n \`\`\` \n ${array[0]} \n \`\`\` \n 输出${index + 1} : \n \`\`\` \n ${array[1]} \n \`\`\` \n`
+    })
+    return ` # ${this.name}| [${this.stringPID}](https://www.luogu.org/problemnew/show/${this.stringPID}) \n \n ${this.translation || ''} \n \n ## 题目描述 \n \n ${this.background} \n \n ${this.description} \n \n ## 输入输出格式 \n \n **输入格式** \n \n ${this.inputFormat} \n \n **输出格式** \n \n ${this.outputFormat} \n \n ## 输入输出样例 \n \n ${sample} \n \n ## 说明 \n \n ${this.hint} \n`
   }
 
   setType (Type: number) {
-    this.type = Type;
+    this.type = Type
   }
 
   getType () {
-    return this.type;
+    return this.type
   }
 
   setSample (Sample: [string[]]) {
-    this.sample = Sample;
+    this.sample = Sample
   }
 
   getSample () {
-    return this.sample;
+    return this.sample
   }
 
   setStringPID (StringPID: string) {
-    this.stringPID = StringPID;
+    this.stringPID = StringPID
   }
 
   getStringPID () {
-    return this.stringPID;
+    return this.stringPID
   }
 
   setTags (Tags: Tag[]) {
-    this.tags = Tags;
+    this.tags = Tags
   }
 
   getTags () {
-    return this.tags;
+    return this.tags
   }
 
   setBackground (Background: string) {
-    this.background = Background;
+    this.background = Background
   }
 
   getBackground () {
-    return this.background;
+    return this.background
   }
 
   setDescription (Description: string) {
-    this.description = Description;
+    this.description = Description
   }
 
   getDescription () {
-    return this.description;
+    return this.description
   }
 
   setInputFormat (InputFormat: string) {
-    this.inputFormat = InputFormat;
+    this.inputFormat = InputFormat
   }
 
   getInputFormat (): string {
-    return this.inputFormat;
+    return this.inputFormat
   }
 
   setFlag (Flag: string) {
-    this.flag = Flag;
+    this.flag = Flag
   }
 
   getFlag () {
-    return this.flag;
+    return this.flag
   }
 
   setHint (Hint: string) {
-    this.hint = Hint;
+    this.hint = Hint
   }
 
   getHint () {
-    return this.hint;
+    return this.hint
   }
 
   setOutputFormat (OutputFormat: string) {
-    this.outputFormat = OutputFormat;
+    this.outputFormat = OutputFormat
   }
 
   getOutputFormat () {
-    return this.outputFormat;
+    return this.outputFormat
   }
 
   setName (Name: string) {
-    this.name = Name;
+    this.name = Name
   }
 
   getName () {
-    return this.name;
+    return this.name
   }
 }
