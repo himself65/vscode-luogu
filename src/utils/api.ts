@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { OAuthInfo, OAuth2ResponseData } from '../shared'
+import { oAuthInfo, OAuth2ResponseData } from '../shared'
 import { luoguUserManager } from '../luoguUserManager'
 import { window } from 'vscode'
 import { Problem } from '../data/Problem'
@@ -22,9 +22,9 @@ export async function getProblem (id: string): Promise<any> {
 export async function loginUser (username: string, password: string): Promise<any> {
   console.log('正在初始化登录')
   return Axios.post('OAuth2/accessToken', {
-    'grant_type': OAuthInfo.grant_type,
-    'client_id': OAuthInfo.clientID,
-    'client_secret': OAuthInfo.client_secret,
+    'grant_type': oAuthInfo.grant_type,
+    'client_id': oAuthInfo.clientID,
+    'client_secret': oAuthInfo.client_secret,
     'username': username,
     'password': password
   }).then(res => {
@@ -40,7 +40,7 @@ export async function loginUser (username: string, password: string): Promise<an
 }
 
 export async function refresh (refresh_token: string, callback: (data: OAuth2ResponseData) => Promise<void>): Promise<any> {
-  return Axios.post(OAuthInfo.authorizationUri, {
+  return Axios.post(oAuthInfo.authorizationUri, {
     'refresh_token': refresh_token
   }).then(res => {
     if (res.status === 200) {

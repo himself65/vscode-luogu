@@ -53,10 +53,12 @@ export interface OAuth2ResponseData {
   scope?: string[]
 }
 
-export const OAuthInfo = {
+// tag: 懒得再去加一个文件过滤器了，希望各位不要乱用这个client_secret，否则这个项目将不会支持登陆功能
+// thanks.
+export const oAuthInfo = {
   grant_type: 'password',
   clientID: 'luogu-vscode',
-  client_secret: 'HasHidden',
+  client_secret: 'Asdf1234Excited111',
   accessTokenUri: 'https://www.luogu.org/api/OAuth2/accessToken',
   authorizationUri: 'https://www.luogu.org/api/OAuth2/authorize'
 }
