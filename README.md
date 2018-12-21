@@ -2,7 +2,9 @@
 
 # vscode-luogu
 
-[![Build Status](https://travis-ci.org/Himself65/vscode-luogu.svg?branch=master)](https://travis-ci.org/Himself65/vscode-luogu)
+[![Build Status](https://www.travis-ci.com/Himself65/vscode-luogu.svg?branch=master)](https://www.travis-ci.com/Himself65/vscode-luogu)
+[![Top Language](https://img.shields.io/github/languages/top/himself65/vscode-luogu.svg)](https://github.com/Himself65/vscode-luogu)
+[![Code Size](https://img.shields.io/github/languages/code-size/himself65/vscode-luogu.svg)](https://github.com/Himself65/vscode-luogu)
 [![VERSION](https://vsmarketplacebadge.apphb.com/version/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
 [![DownloadCount](https://vsmarketplacebadge.apphb.com/installs/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
 [![RATING](https://vsmarketplacebadge.apphb.com/rating-star/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
@@ -44,7 +46,7 @@
 
 ## Others
 
-Luogu图标来自[Luogu](https://luogu.org/)，禁止商业使用
+Luogu图标来自[Luogu](https://luogu.org/)，严禁商业使用
 
 UI图标来自：[链接到Icons8](https://icons8.cn/)
 
