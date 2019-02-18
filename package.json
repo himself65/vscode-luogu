@@ -238,6 +238,7 @@
     "lodash": "^4.17.10",
     "markdown-it": "^8.4.2",
     "markdown-it-highlightjs": "^3.0.0",
+    "redux": "^4.0.1",
     "vscode": "^1.1.29",
     "ws": "^6.0.0"
   }

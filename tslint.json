@@ -6,7 +6,8 @@
     ],
     "exclude": [
       "**/*.test.(j|t)s",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "dist"
     ]
   },
   "rules": {
