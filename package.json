@@ -41,7 +41,7 @@
     "onCommand:luogu.refreshExplorer",
     "onView:luoguExplorer"
   ],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -220,19 +220,16 @@
     "@types/jest": "^24.0.6",
     "@types/lodash": "^4.14.115",
     "@types/markdown-it": "0.0.4",
-    "@types/mocha": "^2.2.42",
     "@types/node": "^7.0.43",
     "@types/ws": "^5.1.2",
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
-    "debug": "^4.1.1",
     "jest": "^24.1.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2",
-    "typescript-eslint-parser": "^21.0.2",
-    "vscode": "^1.1.29"
+    "typescript-eslint-parser": "^21.0.2"
   },
   "dependencies": {
     "@luogu-dev/markdown-it-katex": "0.0.1",
@@ -241,6 +238,7 @@
     "lodash": "^4.17.10",
     "markdown-it": "^8.4.2",
     "markdown-it-highlightjs": "^3.0.0",
+    "vscode": "^1.1.29",
     "ws": "^6.0.0"
   }
 }

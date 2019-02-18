@@ -15,8 +15,16 @@
     "strict": true
   },
   "exclude": [
-    "node_modules",
+    "node_modules/**/*",
     ".vscode-test",
-    ".*"
+    "CHANGELOG.md",
+    ".travis.yml",
+    ".gitignore",
+    ".gitattributes",
+    "CHANGELOG.md",
+    "tests"
+  ],
+  "include": [
+    "./src/**/*"
   ]
 }

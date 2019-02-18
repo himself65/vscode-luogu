@@ -177,11 +177,6 @@
   resolved "http://registry.npm.taobao.org/@types/markdown-it/download/@types/markdown-it-0.0.4.tgz#c5f67365916044b342dae8d702724788ba0b5b74"
   integrity sha1-xfZzZZFgRLNC2ujXAnJHiLoLW3Q=
 
-"@types/mocha@^2.2.42":
-  version "2.2.48"
-  resolved "http://registry.npm.taobao.org/@types/mocha/download/@types/mocha-2.2.48.tgz#3523b126a0b049482e1c3c11877460f76622ffab"
-  integrity sha1-NSOxJqCwSUguHDwRh3Rg92Yi/6s=
-
 "@types/node@*":
   version "11.9.4"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-11.9.4.tgz#ceb0048a546db453f6248f2d1d95e937a6f00a14"

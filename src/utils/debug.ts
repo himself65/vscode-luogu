@@ -1,5 +1,9 @@
-import * as db from 'debug'
+export const isDev = process.env.NODE_ENV === 'development'
 
-export const debug = db('luogu')
+export function debug (message?: any, ...optionalParams: any[]) {
+  if (isDev) {
+    console.log(message, ...optionalParams)
+  }
+}
 
 export default debug
