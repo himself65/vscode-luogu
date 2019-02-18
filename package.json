@@ -6,7 +6,6 @@
   "version": "0.1.13",
   "license": "MIT",
   "publisher": "himself6565",
-  "types": "types/index.d.ts",
   "engines": {
     "vscode": "^1.25.0"
   },
@@ -211,12 +210,14 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "cross-env node ./node_modules/vscode/bin/test",
+    "test": "cross-env jest -i",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint--fix": "npm run lint --fix"
   },
   "devDependencies": {
+    "@types/debug": "^4.1.1",
     "@types/fs-extra": "^5.0.4",
+    "@types/jest": "^24.0.6",
     "@types/lodash": "^4.14.115",
     "@types/markdown-it": "0.0.4",
     "@types/mocha": "^2.2.42",
@@ -224,11 +225,14 @@
     "@types/ws": "^5.1.2",
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
+    "debug": "^4.1.1",
+    "jest": "^24.1.0",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2",
     "typescript-eslint-parser": "^21.0.2",
-    "vscode": "^1.1.6"
+    "vscode": "^1.1.29"
   },
   "dependencies": {
     "@luogu-dev/markdown-it-katex": "0.0.1",

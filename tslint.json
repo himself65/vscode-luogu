@@ -1,5 +1,4 @@
 {
-  "defaultSeverity": "error",
   "extends": "tslint-config-standard",
   "linterOptions": {
     "include": [
@@ -11,9 +10,14 @@
     ]
   },
   "rules": {
-    "array-type": [
-      true,
-      "array"
+    "no-string-throw": true,
+    "no-unused-expression": true,
+    "no-duplicate-variable": true,
+    "curly": true,
+    "class-name": true,
+    "semicolon": [
+      false,
+      "always"
     ],
     "use-type-alias": true,
     "no-inferrable-types": true,

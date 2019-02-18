@@ -1,42 +1,11 @@
 import * as vscode from 'vscode'
-import { luoguUserManager } from './luoguUserManager'
-import { luoguStatusBarItem } from './luoguStatusBarItem'
-import { search } from './commands/search'
-import { submit } from './commands/submit'
-import { promptForOpenOutputChannel, DialogType } from './utils/uiUtils'
-import { UserStatus } from './shared'
 
-export function activate (context: vscode.ExtensionContext) {
-  const channel: vscode.OutputChannel = vscode.window.createOutputChannel('Luogu')
-  let about = function () {
-    promptForOpenOutputChannel('Developed by Himself65', DialogType.info, channel)
-  }
+import RegisterCommands from './commands'
 
-  let notice = function () {
-    promptForOpenOutputChannel('这部分还没有写完QAQ', DialogType.info, channel)
-  }
-
-  // TAG: showProblem 与 searchProblem 功能不同
-  // 前者通过 Explorer 访问题目，后者直接查看题目
-  // TODO: 之后会整合功能
-  context.subscriptions.push(
-    // vscode.window.registerTreeDataProvider("luoguExplorer", luoguTreeDataProvider),
-    vscode.commands.registerCommand('luogu.about', about),
-    vscode.commands.registerCommand('luogu.signin', () => luoguUserManager.signIn(channel)),
-    vscode.commands.registerCommand('luogu.signout', () => luoguUserManager.signOut(channel)),
-    vscode.commands.registerCommand('luogu.userInfo', () => vscode.window.showInformationMessage(`${luoguUserManager.getStatus() === UserStatus.SignedIn ? '登录中' : '未登录'}`)),
-    vscode.commands.registerCommand('luogu.showProblem', notice),
-    vscode.commands.registerCommand('luogu.searchProblem', () => search(channel)),
-    vscode.commands.registerCommand('luogu.submitSolution', () => submit(channel)),
-    vscode.commands.registerCommand('luogu.refreshExplorer', notice)
-  )
-
-  luoguStatusBarItem.updateStatusBar(luoguUserManager.getStatus(), luoguUserManager.getUser())
-  luoguUserManager.on('stateChanged', () => {
-    luoguStatusBarItem.updateStatusBar(luoguUserManager.getStatus(), luoguUserManager.getUser())
-  })
+export async function activate (context: vscode.ExtensionContext): Promise<void> {
+  RegisterCommands(context)
 }
 
-export function deactivate () {
-  luoguStatusBarItem.dispose()
+export function deactivate (): void {
+  // Do nothing.
 }
