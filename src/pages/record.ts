@@ -3,7 +3,12 @@ import { promptForOpenOutputChannel, DialogType } from '../utils/uiUtils'
 import * as vscode from 'vscode'
 
 // 处理数据
-function renderData (detail, status, score, time, memory) {
+// todo
+function renderData (detail: string,
+                     status: string,
+                     score: number,
+                     time: number,
+                     memory: number) {
 
 }
 
@@ -13,7 +18,7 @@ function showLoading () {
 }
 
 export async function connectWs (rid: string, channel: vscode.OutputChannel): Promise<any> {
-  let ws = null
+  let ws: WebSocket
   try {
     ws = new WebSocket('wss://ws.luogu.org/ws')
   } catch (e) {
@@ -32,7 +37,7 @@ export async function connectWs (rid: string, channel: vscode.OutputChannel): Pr
   }
 
   ws.onmessage = function (event) {
-    let data = JSON.parse(event.data)
+    let data = JSON.parse(event.data as string)
     if (data.type === 'status_push') {
       renderData(data.detail, data.status, data.score, data.time, data.memory)
     } else if (data.type === 'result') {

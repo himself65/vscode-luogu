@@ -36,7 +36,6 @@ export async function search (channel: vscode.OutputChannel, uri?: vscode.Uri): 
       throw err
     })
   } catch (error) {
-    console.log(error)
     await promptForOpenOutputChannel(error, DialogType.error, channel)
   }
 }
