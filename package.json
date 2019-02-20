@@ -230,7 +230,8 @@
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2",
-    "typescript-eslint-parser": "^21.0.2"
+    "typescript-eslint-parser": "^21.0.2",
+    "vscode": "^1.1.29"
   },
   "dependencies": {
     "@luogu-dev/markdown-it-katex": "0.0.1",
@@ -241,7 +242,6 @@
     "markdown-it-highlightjs": "^3.0.0",
     "marked": "^0.6.1",
     "redux": "^4.0.1",
-    "vscode": "^1.1.29",
     "ws": "^6.0.0"
   }
 }
