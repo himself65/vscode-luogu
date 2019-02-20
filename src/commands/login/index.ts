@@ -1,7 +1,7 @@
 import SuperCommand from '../SuperCommand'
 
 export default new SuperCommand({
-  onCommand: 'login',
+  onCommand: 'signin',
   handle: () => {
     // todo
   }
