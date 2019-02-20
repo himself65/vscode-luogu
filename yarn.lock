@@ -177,6 +177,11 @@
   resolved "http://registry.npm.taobao.org/@types/markdown-it/download/@types/markdown-it-0.0.4.tgz#c5f67365916044b342dae8d702724788ba0b5b74"
   integrity sha1-xfZzZZFgRLNC2ujXAnJHiLoLW3Q=
 
+"@types/marked@^0.6.1":
+  version "0.6.1"
+  resolved "http://registry.npm.taobao.org/@types/marked/download/@types/marked-0.6.1.tgz#4281d0fbdb7bbefb69905cf44558297bc3c446aa"
+  integrity sha1-QoHQ+9t7vvtpkFz0RVgpe8PERqo=
+
 "@types/node@*":
   version "11.9.4"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-11.9.4.tgz#ceb0048a546db453f6248f2d1d95e937a6f00a14"
@@ -2728,6 +2733,11 @@ markdown-it@^8.4.2:
     linkify-it "^2.0.0"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
+
+marked@^0.6.1:
+  version "0.6.1"
+  resolved "http://registry.npm.taobao.org/marked/download/marked-0.6.1.tgz#a63addde477bca9613028de4b2bc3629e53a0562"
+  integrity sha1-pjrd3kd7ypYTAo3ksrw2KeU6BWI=
 
 match-at@^0.1.1:
   version "0.1.1"

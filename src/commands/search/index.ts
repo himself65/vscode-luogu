@@ -1,6 +1,8 @@
 import * as vscode from 'vscode'
+import * as marked from 'marked'
 import SuperCommand from '../SuperCommand'
 import { searchProblem } from '../../utils/api'
+import { DialogType, promptForOpenOutputChannel } from '../../utils/uiUtils'
 import Problem from '../../model/Problem'
 
 const generateHTML = (problem: Problem) => `
@@ -14,21 +16,24 @@ const generateHTML = (problem: Problem) => `
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
         </head>
         <body>
-        ${problem.toMarkDown()}
+        ${marked(problem.toMarkDown())}
         </body>
 </html>`
 
 export default new SuperCommand({
-  onCommand: 'showProblem',
+  onCommand: 'searchProblem',
   handle: async () => {
     const pid = await vscode.window.showInputBox({
       placeHolder: '输入题号'
     }).then(res => res ? res.toUpperCase() : null)
     if (!pid) {
-      await vscode.window.showErrorMessage('非法题号')
+      await promptForOpenOutputChannel('', DialogType.error)
       return
     }
-    const problem = await searchProblem(pid).then(res => new Problem(res))
+    const problem = await searchProblem(pid).then(res => {
+      console.log(res)
+      return res
+    }).then(res => new Problem(res))
     const panel = vscode.window.createWebviewPanel(problem.stringPID, problem.name, vscode.ViewColumn.Two)
     panel.webview.html = generateHTML(problem)
   }

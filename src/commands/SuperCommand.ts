@@ -1,7 +1,7 @@
 import debug from '../utils/debug'
 
 export default class {
-  readonly onCommand!: string
+  public readonly onCommand!: string
 
   constructor (props: { onCommand: string, handle: Function }) {
     Object.assign(this, props)
@@ -9,7 +9,7 @@ export default class {
 
   private handle!: Function
 
-  public callback () {
+  public callback = () => {
     debug(`${this.onCommand} start.`)
     this.handle()
     debug(`${this.onCommand} end.`)

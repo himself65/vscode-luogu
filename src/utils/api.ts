@@ -1,19 +1,19 @@
 import _ from 'axios'
 
-export const axios = _.create({
-  baseURL: 'https://luogu.org'
-})
-
-const baseURL = 'https://luogu.org'
-const apiBaseURL = baseURL + '/api'
-export const API = {
-  SEARCH_PROBLEM: (pid: string) => apiBaseURL + '/problem/detail' + `/${pid}`,
-  ACCESS_TOKEN: apiBaseURL + '/OAuth2/accessToken'
+export namespace API {
+  export const baseURL = 'https://www.luogu.org'
+  export const apiURL = '/api'
+  export const SEARCH_PROBLEM = (pid: string) => API.apiURL + '/problem/detail' + `/${pid}`
+  export const ACCESS_TOKEN = '/OAuth2/accessToken'
 }
+
+export const axios = _.create({
+  baseURL: API.baseURL
+})
 
 export const searchProblem = async (pid: string) =>
   axios.get(API.SEARCH_PROBLEM(pid))
-    .then(res => res.data || null)
+    .then(res => res.data.data || null)
 
 export const OAUTH2_INFO = {
   grant_type: 'password',
