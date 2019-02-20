@@ -15,7 +15,7 @@ export function registerCommands (context: vscode.ExtensionContext) {
     context.subscriptions.push(
       vscode.commands.registerCommand(
         `luogu.${command.onCommand}`,
-        () => command.callback())
+        command.callback)
     )
   }
   debug('All commands registered.')

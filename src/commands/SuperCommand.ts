@@ -8,7 +8,8 @@ export default class {
   }
 
   private handle!: Function
-  public callback = () => {
+
+  public callback () {
     debug(`${this.onCommand} start.`)
     this.handle()
     debug(`${this.onCommand} end.`)
