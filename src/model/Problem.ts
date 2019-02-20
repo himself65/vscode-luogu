@@ -1,6 +1,3 @@
-import { saveJsonToFile, problemPath, loadJsonFromFile } from '../utils/dataUtils'
-import * as path from 'path'
-
 export interface IAPIProblem {
   StringPID: string
   Tags: Tag[]
@@ -28,7 +25,9 @@ export class Tag {
   private parentId = 0
 
   constructor (fields?: IAPITag) {
-    if (!fields) { return }
+    if (!fields) {
+      return
+    }
     this.id = fields.Id
     this.name = fields.Name
     this.parentId = fields.ParentId
@@ -60,23 +59,25 @@ export class Tag {
 }
 
 export class Problem {
-  private stringPID = ''
-  private tags: Tag[] = []
-  private type = 0
-  private sample: [string[]] = [[]]
-  private inputFormat = ''
-  private outputFormat = ''
-  private name = ''
-  private hint = ''
-  private flag = ''
-  private description = ''
-  private background = ''
-  private translation?: string
+  public stringPID = ''
+  public tags: Tag[] = []
+  public type = 0
+  public sample: [string[]] = [[]]
+  public inputFormat = ''
+  public outputFormat = ''
+  public name = ''
+  public hint = ''
+  public flag = ''
+  public description = ''
+  public background = ''
+  public translation?: string
 
   public constructor (
-        fields?: IAPIProblem
-    ) {
-    if (!fields) { return }
+    fields?: IAPIProblem
+  ) {
+    if (!fields) {
+      return
+    }
     this.stringPID = fields.StringPID
     this.tags = fields.Tags
     this.type = fields.Type
@@ -89,17 +90,6 @@ export class Problem {
     this.description = fields.Description
     this.background = fields.Background
     this.translation = fields.Translation
-  }
-
-  static async load (pid: string): Promise<any> {
-    const pt = path.join(problemPath, pid)
-    return loadJsonFromFile(pt).then(problem => {
-      return new Problem(problem)
-    })
-  }
-
-  async save (): Promise<void> {
-    return saveJsonToFile(problemPath, this)
   }
 
   toHTML (): string {
@@ -151,92 +141,6 @@ export class Problem {
     })
     return ` # ${this.name}| [${this.stringPID}](https://www.luogu.org/problemnew/show/${this.stringPID}) \n \n ${this.translation || ''} \n \n ## 题目描述 \n \n ${this.background} \n \n ${this.description} \n \n ## 输入输出格式 \n \n **输入格式** \n \n ${this.inputFormat} \n \n **输出格式** \n \n ${this.outputFormat} \n \n ## 输入输出样例 \n \n ${sample} \n \n ## 说明 \n \n ${this.hint} \n`
   }
-
-  setType (Type: number) {
-    this.type = Type
-  }
-
-  getType () {
-    return this.type
-  }
-
-  setSample (Sample: [string[]]) {
-    this.sample = Sample
-  }
-
-  getSample () {
-    return this.sample
-  }
-
-  setStringPID (StringPID: string) {
-    this.stringPID = StringPID
-  }
-
-  getStringPID () {
-    return this.stringPID
-  }
-
-  setTags (Tags: Tag[]) {
-    this.tags = Tags
-  }
-
-  getTags () {
-    return this.tags
-  }
-
-  setBackground (Background: string) {
-    this.background = Background
-  }
-
-  getBackground () {
-    return this.background
-  }
-
-  setDescription (Description: string) {
-    this.description = Description
-  }
-
-  getDescription () {
-    return this.description
-  }
-
-  setInputFormat (InputFormat: string) {
-    this.inputFormat = InputFormat
-  }
-
-  getInputFormat (): string {
-    return this.inputFormat
-  }
-
-  setFlag (Flag: string) {
-    this.flag = Flag
-  }
-
-  getFlag () {
-    return this.flag
-  }
-
-  setHint (Hint: string) {
-    this.hint = Hint
-  }
-
-  getHint () {
-    return this.hint
-  }
-
-  setOutputFormat (OutputFormat: string) {
-    this.outputFormat = OutputFormat
-  }
-
-  getOutputFormat () {
-    return this.outputFormat
-  }
-
-  setName (Name: string) {
-    this.name = Name
-  }
-
-  getName () {
-    return this.name
-  }
 }
+
+export default Problem

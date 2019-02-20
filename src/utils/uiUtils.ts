@@ -1,16 +1,15 @@
-'use strict'
-
 import * as vscode from 'vscode'
+import { luoguChannel } from '../views/luoguChannel'
 
 export namespace DialogOptions {
-    export const open: vscode.MessageItem = { title: 'Open' }
-    export const yes: vscode.MessageItem = { title: 'Yes' }
-    export const no: vscode.MessageItem = { title: 'No', isCloseAffordance: true }
-    export const never: vscode.MessageItem = { title: 'Never' }
-    export const singUp: vscode.MessageItem = { title: 'Sign up' }
+  export const open: vscode.MessageItem = { title: 'Open' }
+  export const yes: vscode.MessageItem = { title: 'Yes' }
+  export const no: vscode.MessageItem = { title: 'No', isCloseAffordance: true }
+  export const never: vscode.MessageItem = { title: 'Never' }
+  export const singUp: vscode.MessageItem = { title: 'Sign up' }
 }
 
-export async function promptForOpenOutputChannel (message: string, type: DialogType = DialogType.info, channel: vscode.OutputChannel): Promise<void> {
+export async function promptForOpenOutputChannel (message: string, type: DialogType = DialogType.info, channel: vscode.OutputChannel = luoguChannel): Promise<void> {
   let result: vscode.MessageItem | undefined
   switch (type) {
     case DialogType.info:
@@ -44,7 +43,7 @@ export async function showFileSelectDialog (): Promise<vscode.Uri[] | undefined>
 }
 
 export enum DialogType {
-    info = 'info',
-    warning = 'warning',
-    error = 'error'
+  info = 'info',
+  warning = 'warning',
+  error = 'error'
 }

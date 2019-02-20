@@ -10,33 +10,26 @@
 [![RATING](https://vsmarketplacebadge.apphb.com/rating-star/himself6565.vscode-luogu.svg)](https://marketplace.visualstudio.com/items?itemName=himself6565.vscode-luogu)
 [![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Himself65/vscode-luogu/blob/master/LICENSE)
 
-轻松的让你在 VS Code 上提交洛谷代码
+轻松的让你在 VSCode 上提交洛谷代码
 
 ## 使用说明
 
-**查看题目** :
+#### **查看题目**
 
-- 按下 `F1` 或 `Ctrl+Shift+P` ，查找`Luogu: 查看题目`命令，点击后输入题号完成搜索
+1. 按下 `F1` 或 `Ctrl+Shift+P` ，查找`Luogu: 查看题目`命令，点击后输入题号完成搜索
 
-- 点击界面左侧洛谷图片，然后点击搜索图标，输入题号完成搜索
-
-**提交题目** :
-
-- 按下 `F1` 或 `Ctrl+Shift+P` ，查找`Luogu: 提交当前文档代码`命令，点击后按照步骤进行即可
-
-- 点击界面左侧洛谷图片，然后点击登录图标，按要求输入即可登录
-
-其他功能正在开发，尽情期待
+2. 点击界面左侧洛谷图片，然后点击搜索图标，输入题号完成搜索
 
 ## 完成功能
 
 - 查看题目
 
+
+## 开发中功能
+
 - 登录账号
 
 - 提交代码
-
-## 开发中功能
 
 - 题目离线查看
 
