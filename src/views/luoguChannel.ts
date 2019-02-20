@@ -29,4 +29,6 @@ class LuoguChannel implements vscode.Disposable {
   }
 }
 
-export default new LuoguChannel()
+export const luoguChannel = new LuoguChannel()
+
+export default luoguChannel

@@ -34,4 +34,6 @@ export class LuoguStatusBar implements vscode.Disposable {
   }
 }
 
-export default new LuoguStatusBar()
+export const luoguStatusBar = new LuoguStatusBar()
+
+export default luoguStatusBar
