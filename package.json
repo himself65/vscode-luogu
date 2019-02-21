@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.1.13",
+  "version": "0.2.2",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -206,9 +206,9 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "rollup -c",
+    "compile": "rollup -c",
+    "watch": "rollup -c -w",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "cross-env jest -i",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
@@ -226,11 +226,20 @@
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
     "jest": "^24.1.0",
+    "rollup": "^1.2.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.2",
     "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.3",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2",
-    "typescript-eslint-parser": "^21.0.2"
+    "typescript-eslint-parser": "^21.0.2",
+    "vscode": "^1.1.29"
   },
   "dependencies": {
     "@luogu-dev/markdown-it-katex": "0.0.1",
@@ -241,7 +250,6 @@
     "markdown-it-highlightjs": "^3.0.0",
     "marked": "^0.6.1",
     "redux": "^4.0.1",
-    "vscode": "^1.1.29",
     "ws": "^6.0.0"
   }
 }

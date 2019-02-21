@@ -1,5 +1,6 @@
 import * as vscode from 'vscode'
-import * as marked from 'marked'
+// @ts-ignore
+import marked from 'marked'
 import SuperCommand from '../SuperCommand'
 import { searchProblem } from '../../utils/api'
 import { DialogType, promptForOpenOutputChannel } from '../../utils/uiUtils'
