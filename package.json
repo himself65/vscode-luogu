@@ -3,7 +3,7 @@
   "displayName": "vscode-luogu",
   "description": "Solve Luogu Problems in VSCode",
   "icon": "resources/img/luogu-normal.png",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "publisher": "himself6565",
   "engines": {
@@ -206,7 +206,7 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "webpack",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
@@ -225,13 +225,17 @@
     "@types/ws": "^5.1.2",
     "concurrently": "^4.0.1",
     "cross-env": "^5.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "jest": "^24.1.0",
     "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.3",
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2",
     "typescript-eslint-parser": "^21.0.2",
-    "vscode": "^1.1.29"
+    "vscode": "^1.1.29",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
   },
   "dependencies": {
     "@luogu-dev/markdown-it-katex": "0.0.1",
